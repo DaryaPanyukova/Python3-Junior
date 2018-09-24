@@ -1,0 +1,4 @@
+s=float(input("введите расстояние в км"))
+v=float(input("введите скорость в км/ч"))
+t=float(s/v)
+print(t,"ч.")
