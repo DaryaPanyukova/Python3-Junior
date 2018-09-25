@@ -1,14 +1,14 @@
 import turtle, random
 
 colors = ["red", "orange", "white", "green", "blue", "pink", "purple", "yellow"]
-radius = 20
+radius = 50
 
 
 t = turtle.Pen()
 t.width(3)
 turtle.speed(150)
 turtle.bgcolor("black")
-circles = int(turtle.numinput("Количество квадратов", "Сколько квадратов нарисовать?",4, 1, 360))
+circles = int(turtle.numinput("Количество кругов", "Сколько кругов нарисовать?",4, 1, 360))
 for i in range(circles):
     rnd_color = random.choice(colors)
     t.pencolor(rnd_color)
