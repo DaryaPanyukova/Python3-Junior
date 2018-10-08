@@ -1,0 +1,6 @@
+n=float(input("введите число "))
+if n<0:
+    k=-n
+if n>0:
+    k=n
+print(k)
