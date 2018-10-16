@@ -1,0 +1,4 @@
+n=float(1)
+while 1<=n<=13.5:
+    print(n)
+    n+=0.5
