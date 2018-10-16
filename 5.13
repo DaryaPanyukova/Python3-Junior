@@ -1,9 +1,7 @@
 n=int(input("введите число "))
-v=0
 b=1
 for a in range(n):
-    v=v+b
-    b+=2
-    if v>n:
+    if b**2>n:
         break
-    print(v)
+    print(b)
+    b+=1
