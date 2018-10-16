@@ -1,0 +1,9 @@
+n=int(input("введите число "))
+v=0
+b=1
+for a in range(n):
+    v=v+b
+    b+=2
+    if v>n:
+        break
+    print(v)
