@@ -1,4 +1,4 @@
-a=float(input(" введите число а "))
+a=float(input(" введите число а (0<a<=1) "))
 n=1
 b=1
 while n>=a:
