@@ -1,0 +1,23 @@
+from random import randint
+import time
+igrock1=input("Введите имя игрока 1 ")
+igrock2=input("Введите имя игрока 2 ")
+p1=0
+p2=0
+v=0
+for x in range(5):
+      print("Кубик бросает",igrock1)
+      time.sleep(3)
+      n1=randint(1,6)
+      print("Выпало ", n1)
+      print("Кубик бросает", igrock2)
+      time.sleep(3)
+      n2=randint(1,6)
+      print("Выпало ", n2)
+      if n2>n1:
+           p2+=1
+      elif n1>n2:
+            p1+=1
+      else:
+            v+=1
+print(igrock1," выиграл ",p1, "раз. ",igrock2, "выиграл ", p2, " раз. Количество ничьих-", v)
