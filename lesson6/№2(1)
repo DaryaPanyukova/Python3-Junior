@@ -2,24 +2,19 @@ from random import randint
 import time
 igrock1=input("Введите имя игрока 1 ")
 igrock2=input("Введите имя игрока 2 ")
-print("Первый бросок.Кубик бросает",igrock1)
-time.sleep(3)
-n1=randint(1,6)
-print("Выпало ", n1)
-print("Первый бросок.Кубик бросает", igrock2)
-time.sleep(3)
-n2=randint(1,6)
-print("Выпало ", n2)
-print("Второй бросок.Кубик бросает",igrock1)
-time.sleep(3)
-n3=randint(1,6)
-print("Выпало ", n3)
-print("Второй бросок.Кубик бросает",igrock2)
-time.sleep(3)
-n4=randint(1,6)
-print("Выпало ", n4)
-summa1=n1+n3
-summa2=n2+n4
+summa1=0
+summa2=0
+for c in range(2):
+      print("Кубик бросает",igrock1)
+      time.sleep(3)
+      n1=randint(1,6)
+      print("Выпало ", n1)
+      summa1+=n1
+      print("Кубик бросает", igrock2)
+      time.sleep(3)
+      n2=randint(1,6)
+      print("Выпало ", n2)
+      summa2+=n2
 if summa1>summa2:
       print("Выиграл игрок 1")
 elif summa2>summa1:
