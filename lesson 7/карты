@@ -1,0 +1,81 @@
+from random import randint
+
+igrok1=input("Введите имя игрока 1 ")
+igrok2=input("Введите имя игрока 2 ")
+nomer_masti_1=randint(1,4)
+nomer_dost_1=randint(6,14)
+
+if nomer_masti_1==1:
+    mast="пик"
+elif nomer_masti_1==2:
+    mast="треф"
+elif nomer_masti_1==3:
+    mast="бубен"
+else:
+    mast="червей"
+
+if nomer_dost_1==6:
+    dost="шестерка"
+elif nomer_dost_1==7:
+    dost="семерка"
+elif nomer_dost_1==8:
+    dost="восьмерка"
+elif nomer_dost_1==9:
+    dost="девятка"
+elif nomer_dost_1==10:
+    dost="десятка"
+elif nomer_dost_1==11:
+    dost="валет"
+elif nomer_dost_1==12:
+    dost="дама" 
+elif nomer_dost_1==13:
+    dost="король"
+else:
+    dost="туз"
+    
+print(igrok1, "-выпала карта- ", dost, mast)
+
+nomer_masti_2=randint(1,4)
+nomer_dost_2=randint(6,14)
+
+if nomer_masti_2==1:
+    mast="пик"
+elif nomer_masti_2==2:
+    mast="треф"
+elif nomer_masti_2==3:
+    mast="бубен"
+else:
+    mast="червей"
+
+if nomer_dost_2==6:
+    dost="шестерка"
+elif nomer_dost_2==7:
+    dost="семерка"
+elif nomer_dost_2==8:
+    dost="восьмерка"
+elif nomer_dost_2==9:
+    dost="девятка"
+elif nomer_dost_2==10:
+    dost="десятка"
+elif nomer_dost_2==11:
+    dost="валет"
+elif nomer_dost_2==12:
+    dost="дама" 
+elif nomer_dost_2==13:
+    dost="король"
+else:
+    dost="туз"
+    
+print(igrok2, "-выпала карта- ", dost, mast)
+
+if nomer_masti_1>nomer_masti_2:
+    print("выиграл", igrok1)
+elif nomer_masti_2>nomer_masti_1:
+    print("выиграл", igrok2)
+else:
+    if nomer_dost_1>nomer_dost_2:
+        print("выиграл", igrok1)
+    if nomer_dost_2>nomer_dost_1:
+        print("выиграл", igrok2)
+    else:
+        print("ничья")
