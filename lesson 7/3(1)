@@ -1,0 +1,94 @@
+from random import randint
+
+igrok1=input("Введите имя игрока 1 ")
+igrok2=input("Введите имя игрока 2 ")
+x=int(input("Количество конов в одной игре= "))
+pobeda1=0
+pobeda2=0
+for b in range(x):
+    nomer_masti_1=randint(1,4)
+    nomer_dost_1=randint(6,14)
+    if nomer_masti_1==1:
+        mast="пик"
+    elif nomer_masti_1==2:
+        mast="треф"
+    elif nomer_masti_1==3:
+        mast="бубен"
+    else:
+        mast="червей"
+
+    if nomer_dost_1==6:
+        dost="шестерка"
+    elif nomer_dost_1==7:
+        dost="семерка"
+    elif nomer_dost_1==8:
+        dost="восьмерка"
+    elif nomer_dost_1==9:
+        dost="девятка"
+    elif nomer_dost_1==10:
+        dost="десятка"
+    elif nomer_dost_1==11:
+        dost="валет"
+    elif nomer_dost_1==12:
+        dost="дама" 
+    elif nomer_dost_1==13:
+        dost="король"
+    else:
+        dost="туз"
+    
+    print(igrok1, "-выпала карта- ", dost, mast)
+
+    nomer_masti_2=randint(1,4)
+    nomer_dost_2=randint(6,14)
+
+    if nomer_masti_2==1:
+        mast="пик"
+    elif nomer_masti_2==2:
+        mast="треф"
+    elif nomer_masti_2==3:
+        mast="бубен"
+    else:
+        mast="червей"
+
+    if nomer_dost_2==6:
+        dost="шестерка"
+    elif nomer_dost_2==7:
+        dost="семерка"
+    elif nomer_dost_2==8:
+        dost="восьмерка"
+    elif nomer_dost_2==9:
+        dost="девятка"
+    elif nomer_dost_2==10:
+        dost="десятка"
+    elif nomer_dost_2==11:
+        dost="валет"
+    elif nomer_dost_2==12:
+        dost="дама" 
+    elif nomer_dost_2==13:
+        dost="король"
+    else:
+        dost="туз"
+    
+    print(igrok2, "-выпала карта- ", dost, mast)
+
+    if nomer_masti_1>nomer_masti_2:
+        print("В этом коне выиграл", igrok1)
+        pobeda1+=1
+    elif nomer_masti_2>nomer_masti_1:
+        print("В этом коне выиграл", igrok2)
+        pobeda2+=1
+    else:
+        if nomer_dost_1>nomer_dost_2:
+            print("В этом коне выиграл", igrok1)
+            pobeda1+=1
+        if nomer_dost_2>nomer_dost_1:
+            print("В этом коне выиграл", igrok2)
+            pobeda2+=1
+        else:
+            print("ничья")
+if pobeda1>pobeda2:
+    print("Счет ", pobeda1, ":", pobeda2, " в пользу ",igrok1)
+elif pobeda2>pobeda1:
+    print("Счет ", pobeda1, ":", pobeda2, " в пользу ",igrok2)
+else:
+    print("Счет ", pobeda1, ":", pobeda2, ". Ничья.")
