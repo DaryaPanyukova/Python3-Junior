@@ -1,0 +1,13 @@
+from random import randint
+d=0
+for x in range(20):
+    a=randint(1,9)
+    b=randint(1,9)
+    print("Чему равно произведение чисел",a,"и",b,"?")
+    itog=int(input("Ваш ответ: "))
+    if a*b==itog:
+        print("Ответ верный!")
+        d=d+1
+    else:
+        print("Ответ неверный")
+print("Игра окончена.Количество правильный ответов- ",d, " из 20" )
