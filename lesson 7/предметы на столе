@@ -1,0 +1,43 @@
+from random import randint
+
+igrok=input("Введите ваше имя ")
+n=randint(15,25)
+print("всего ", n, "предметов")
+c=randint(3,5)
+print("за один раз можно взять ",c," предметов")
+ocher=randint(1,2)
+if ocher==1:
+    print("начинает компьютер")
+else:
+    print("начинает", igrok)
+
+while True:
+    if ocher==1:
+        if n>=c:
+            skolko1=randint(1,c)
+        else:
+            skolko1=randint(1,n)
+        print("Koмпьютер взял", skolko1)
+        n=n-skolko1
+    else:
+        skolko2=int(input("Сколько вы берете? "))
+        n=n-skolko2
+    print("Осталось ",n, "предметов")
+    if n!=0:
+        if ocher==1:
+            ocher=2
+            print("Ваш ход")
+        else:
+            ocher=1
+            print("ход компьютера ")
+    else:
+        print("Игра окончена")
+
+        if ocher==2:
+            print("Последний ход сделали вы.Выиграл компьютер")
+        else:
+            print("Последний ход сделал компьютер. Выиграли вы")
+
+        break
+        
+
