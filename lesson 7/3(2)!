@@ -5,16 +5,7 @@ igrok2=input("Введите имя игрока 2 ")
 x=int(input("Количество конов в одной игре= "))
 pobeda1=0
 pobeda2=0
-kozyr=randint(1,4)
-if kozyr ==1:
-    mast="пики"
-elif kozyr==2:
-    mast="трефы"
-elif nomer_masti_1 ==3:
-    mast="бубны"
-else:
-    mast="черви"
-print(" Козырь- ", mast)
+
 for b in range(x):
     nomer_masti_1=randint(1,4)
     nomer_dost_1=randint(6,14)
@@ -26,7 +17,16 @@ for b in range(x):
         mast="бубен"
     else:
         mast="червей"
-
+    kozyr=randint(1,4)
+    if kozyr==1:
+        mast="пики"
+    elif kozyr==2:
+        mast="трефы"
+    elif kozyr==3:
+        mast="бубны"
+    else:
+        mast="черви"
+    print(" Козырь- ", mast)
     if nomer_dost_1==6:
         dost="шестерка"
     elif nomer_dost_1==7:
@@ -80,25 +80,32 @@ for b in range(x):
         dost="туз"
     
     print(igrok2, "-выпала карта- ", dost, mast)
-
-    if nomer_masti_1>nomer_masti_2:
+    if kozyr==nomer_masti_1 and nomer_masti_2!=kozyr:
         print("В этом коне выиграл", igrok1)
         pobeda1+=1
-    elif nomer_masti_2>nomer_masti_1:
+    elif kozyr==nomer_masti_2 and nomer_masti_1!=kozyr:
         print("В этом коне выиграл", igrok2)
         pobeda2+=1
     else:
-        if nomer_dost_1>nomer_dost_2:
+        if nomer_masti_1>nomer_masti_2:
             print("В этом коне выиграл", igrok1)
             pobeda1+=1
-        if nomer_dost_2>nomer_dost_1:
+        elif nomer_masti_2>nomer_masti_1:
             print("В этом коне выиграл", igrok2)
             pobeda2+=1
         else:
-            print("ничья")
+            if nomer_dost_1>nomer_dost_2:
+                print("В этом коне выиграл", igrok1)
+                pobeda1+=1
+            if nomer_dost_2>nomer_dost_1:
+                print("В этом коне выиграл", igrok2)
+                pobeda2+=1
+            else:
+                print("ничья")
 if pobeda1>pobeda2:
     print("Счет ", pobeda1, ":", pobeda2, " в пользу ",igrok1)
 elif pobeda2>pobeda1:
     print("Счет ", pobeda1, ":", pobeda2, " в пользу ",igrok2)
 else:
     print("Счет ", pobeda1, ":", pobeda2, ". Ничья.")
+
