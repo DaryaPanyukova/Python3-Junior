@@ -25,11 +25,16 @@ while True:
         print("Koмпьютер взял", skolko1)
         time.sleep(1)
         n=n-skolko1
+        print("Осталось ",n, "предметов")
     else:
         time.sleep(1)
         skolko2=int(input("Сколько вы берете? "))
-        n=n-skolko2
+
+        while skolko2<0 or skolko2>c or n-skolko2<0:
+            print("попробуйте еще раз")
+            skolko2=int(input("Сколько вы берете? "))
         time.sleep(2)
+        n=n-skolko2
         print("Осталось ",n, "предметов")
     if n!=0:
         if ocher==1:
