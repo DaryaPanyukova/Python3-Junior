@@ -1,0 +1,4 @@
+for c in range(5):
+    for v in range(2,21):
+        print(v, end= " ")
+    print()
