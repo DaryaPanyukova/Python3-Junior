@@ -1,0 +1,6 @@
+for n in range(8):
+    
+    for m in range(8-n):
+        print(8-m, end = ' ')
+    print()
+ 
