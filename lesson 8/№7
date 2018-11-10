@@ -1,0 +1,5 @@
+for y in range(4):
+    for x in range(0,13):
+        b=15-x
+        print(b, end= " ")
+    print()
