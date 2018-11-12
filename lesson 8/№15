@@ -1,0 +1,8 @@
+
+for d in range(1,6):
+
+    for g in range(d):
+        print(10*d, end= " ")
+  
+    print()
+    
