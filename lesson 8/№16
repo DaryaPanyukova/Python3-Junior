@@ -1,0 +1,8 @@
+
+for d in range(1,6):
+
+    for g in range(6-d):
+        print(d+4, end= " ")
+  
+    print()
+    
