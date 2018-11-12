@@ -1,0 +1,8 @@
+p=0
+for d in range(4):
+    p=d+3
+    for g in range(p):
+        print(p, end= " ")
+  
+    print()
+    
