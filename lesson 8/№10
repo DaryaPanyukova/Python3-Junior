@@ -1,5 +1,7 @@
+p=0
 for d in range(1,9):
+    p=d+1
     for g in range(10-d):
-        print(g+d+1, end= " ")
+        print(p, end= " ")
+        p+=1
     print()
-    
