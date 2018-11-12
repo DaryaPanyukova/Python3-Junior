@@ -1,0 +1,8 @@
+
+for d in range(7):
+
+    for g in range(1,6):
+        print(100+d*10+g, end= " ")
+  
+    print()
+    
