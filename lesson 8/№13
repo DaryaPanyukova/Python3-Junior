@@ -1,0 +1,7 @@
+for d in range(6):
+
+    for g in range(d):
+        print(20+d, end= " ")
+  
+    print()
+    
