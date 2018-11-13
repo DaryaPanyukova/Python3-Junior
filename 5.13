@@ -1,7 +1,0 @@
-n=int(input("введите число "))
-b=1
-for a in range(n):
-    if b**2>n:
-        break
-    print(b)
-    b+=1
