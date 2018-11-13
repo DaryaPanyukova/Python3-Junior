@@ -1,0 +1,8 @@
+a=float(input(" введите число а (0<a<=1) "))
+n=1
+b=1
+while n>=a:
+    n=1/b
+    b+=1
+    if n>=a:
+        print(n)
