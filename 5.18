@@ -1,7 +1,0 @@
-v=0
-while True:
-    n=int(input("введите число "))
-    v+=1
-    if n==0:
-        break
-print("кол-во чисел перед 0=", v)
