@@ -1,0 +1,4 @@
+n=21
+for x in range(14):
+    print(2*n)
+    n=n+10
