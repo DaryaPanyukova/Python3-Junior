@@ -1,0 +1,5 @@
+while True:
+    n=int(input("введите число "))
+    print("вы ввели число ",n)
+    if n==0:
+        break
