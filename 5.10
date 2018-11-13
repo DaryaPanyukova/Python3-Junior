@@ -1,4 +1,0 @@
-a=11
-while 10<a<100:
-    print(a)
-    a=a+2
