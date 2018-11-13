@@ -1,9 +1,0 @@
-x=0
-y=0
-m=float(input(" введите число m(0,52<=m<=33,7) "))
-while y<m:
-    x=x+1
-    y=(x**2+100)/(x+200)
-    if y>m:
-        break
-    print(y)
