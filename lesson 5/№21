@@ -1,0 +1,8 @@
+n=int(input(" введите число "))
+l=1
+a=0
+while a<100:
+    a=a+1
+    if a**2>n:
+        print(a)
+        break
