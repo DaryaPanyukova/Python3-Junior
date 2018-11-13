@@ -1,8 +1,0 @@
-a=float(input(" введите число а (1<a<=1,5) "))
-n=1
-b=2
-while b>=a:
-    n=n+1
-    b=1/n+1
-    if b>=a:
-        print(b)
