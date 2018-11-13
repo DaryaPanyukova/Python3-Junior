@@ -1,0 +1,4 @@
+x=2
+for y in range(2,23):
+    print(x)
+    x=x+0.5
