@@ -1,0 +1,6 @@
+a=float(input(" введите число а "))
+n=int(input(" введите число n "))
+v=1
+for x in range(n):
+    v=v*a
+print(v)
