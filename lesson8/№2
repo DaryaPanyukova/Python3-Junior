@@ -1,0 +1,8 @@
+n = int(input('Введите натуральное число '))
+Min=9
+while n > 0:
+    posl = n % 10
+    if posl <Min:
+        Min = posl
+    n = n//10
+print('Минимальная цифра заданного числа равна', Min)
