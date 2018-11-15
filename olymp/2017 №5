@@ -1,0 +1,20 @@
+k1=int(input("Введите первое число "))
+k2=int(input("Введите второе число "))
+k3=int(input("Введите третье число "))
+Max1=0
+Max2=0
+if k1>k2:
+    Max1=k1
+    if k2>k3:
+        Max2=k2
+    else:
+        Max2=k3
+
+else:
+    Max1=k2
+    if k1>k3:
+        Max2=k1
+    else:
+        Max2=k3
+summa=Max1+Max2
+print(summa)
