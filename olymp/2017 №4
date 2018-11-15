@@ -1,0 +1,13 @@
+k=int(input("Введите число "))
+summa=0
+if k<100 or k>999:
+    print("FALSE")
+else:
+    while k>0:
+        n=k%10
+        k=k//10
+        summa=summa+n
+    if summa==13:
+        print("ENTER")
+    else:
+        print("LOCK")
