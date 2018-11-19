@@ -1,0 +1,7 @@
+k=0
+kolvo=int(input("Введите кол-во чисел "))
+for f in range(kolvo):
+    n=int(input("Введите число "))
+    if n%2==0:
+        k=k+1
+print("В наборе ", k, "четных чисел")
