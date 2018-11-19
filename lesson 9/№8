@@ -1,0 +1,9 @@
+h=0
+kolvo=10
+Min=100000
+for g in range(1,kolvo+1):
+    r=float(input("Введите число "))
+    if r<Min:
+        Min=r
+        h=g
+print(h)
