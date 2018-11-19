@@ -1,0 +1,6 @@
+n = 12
+s=0
+for v in range(1,n+1):
+    f=float(input("Введите длину стороны "))
+    s=s+f
+print(s)
