@@ -1,0 +1,7 @@
+n=int(input("Введите кол-во учеников в классе "))
+s=0
+for x in range(n):
+    m=int(input("Введите оценку ученика "))
+    if m==5:
+        s=s+1
+print(s)
