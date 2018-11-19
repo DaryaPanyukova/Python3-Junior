@@ -1,0 +1,6 @@
+s=0
+for x in range(12):
+    n=int(input("Введите рост юноши "))
+    if n<165:
+        s=s+1
+print(s)
