@@ -1,0 +1,10 @@
+l=5
+Max=0
+p=0
+for g in range(1,l+1):
+    r=float(input("Введите кол-во осадков "))
+    if r>=Max:
+        Max=r
+        p=g
+
+print(p)
