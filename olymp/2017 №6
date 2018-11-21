@@ -1,0 +1,13 @@
+vor=int(input("Количество воробьев "))
+sin=int(input("Количество синиц "))
+sneg=int(input("Количество снегирей "))
+voron=int(input("Количество ворон "))
+summa=vor+sin+sneg+voron
+n=summa%10
+if n==1 and summa!=11:
+    print(summa, "птица")
+elif 1<n<5 and summa!=12 and summa!=13 and summa!=14:
+    print(summa," птицы")
+elif 4<n<=9 or summa==11 or summa==12 or summa==4 or summa==13 or n==0:
+    print(summa, " птиц")
+
