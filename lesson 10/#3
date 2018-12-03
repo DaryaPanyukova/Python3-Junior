@@ -1,0 +1,17 @@
+st=input("Введите строку ")
+sim1="о"
+sim2="а"
+k1=0
+k2=0
+for n in range(len(st)):
+    if st[n]==sim1:
+        k1+=1
+    elif st[n]==sim2:
+        k2+=1
+if k1>k2:
+    print("Букв о больше ")
+elif k2>k1:
+    print("Букв а больше ")
+else:
+    print("Кол-во букв о и а одинаково ")
+print(k1,k2)
