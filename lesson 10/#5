@@ -1,0 +1,10 @@
+st=input("Введите строку ")
+sim1="н"
+sim2="к"
+ind1=st.find(sim1)
+ind2=st.find(sim2)
+if ind1>ind2:
+    print(sim2)
+else:
+    print(sim1)
+    
