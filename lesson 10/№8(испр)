@@ -1,0 +1,15 @@
+st=input("Введите строку ")
+sim1="или"
+sim2=" "
+nom=0
+k=0
+
+for d in range(len(st)):
+    if st[d]==sim2:
+        slovo=st[nom:d]
+        nom=nom+len(slovo)+1
+
+        
+        if slovo==sim1:
+            k+=1
+print(k)
