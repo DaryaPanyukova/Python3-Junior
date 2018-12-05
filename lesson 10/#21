@@ -1,0 +1,12 @@
+st=input("Введите число ")
+sim1="."
+sim2=","
+nom=st.find(sim1)
+for a in range(len(st)):
+
+    if st[a]==sim1 or st[a]==sim2:
+        cel=len(st[0:a])
+        print(" В целой части числа ", cel, " цифр")
+        drob=len(st[a+1:len(st)])
+        print("В дробной части числа ",drob, " цифр")
+        break
