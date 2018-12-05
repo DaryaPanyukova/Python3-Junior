@@ -1,0 +1,11 @@
+st=input("Введите строку ")
+k=0
+for v in range (len(st)):
+    if st[v].isdigit():
+        k=k+1
+if st.count(",")>k:
+    print("В предложении больше запятых ")
+elif st.count(",")==k:
+    print("Кол-во цифр и запятых  в предложении одинаково ")
+else:
+    print("В предложении больше цифр")
