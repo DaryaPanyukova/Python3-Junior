@@ -1,0 +1,13 @@
+st=input("Введите предложение ")
+sim=" "
+nom=0
+
+for a in range(len(st)):
+    
+    if st[a]==sim:
+
+        slovo=st[nom:a]
+        nom=nom+len(slovo)+1
+
+slovo2=st[nom:len(st)]
+print(slovo2)
