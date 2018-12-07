@@ -1,0 +1,24 @@
+st=input("Введите предложение ")
+sim=" "
+nom=0
+summa=""
+for a in range(len(st)):
+  
+    if st[a]==sim:
+        slovo=st[nom:a]
+        nom=nom+len(slovo)+1
+        summa=summa+slovo
+slovo2=st[nom:len(st)]
+st=summa+slovo2
+dlina=len(st)
+
+for x in range(dlina):
+
+    if st[x]==st[dlina-1]:
+        nom+=1
+        dlina-=1
+        if x==dlina:
+            print("Фраза является палиндромом")
+    else:
+        print("Фраза не является палиндромом ")
+        break
