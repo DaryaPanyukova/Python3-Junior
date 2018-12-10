@@ -1,0 +1,16 @@
+st=input("Введите предложение ")
+sim_a="а"
+sim_b="б"
+sim_A="А"
+sim_B="Б"
+itog=""
+for d in range(len(st)):
+    if st[d]==sim_a:
+        itog=itog+sim_b
+    elif st[d]==sim_b:
+        itog=itog+sim_a
+    elif st[d]==sim_A:
+        itog=itog+sim_B
+    else:
+        itog=itog+sim_A
+print(itog)    
