@@ -1,0 +1,20 @@
+st=input("Введите строку ")
+k1=input("Введите начальную подстроку ")
+k2=input("Введите итоговую подстроку ")
+dlina1=len(st)
+dlina2=len(k1)
+z=0
+itog=""
+while z<=dlina1-dlina2:
+    if st[z:z+dlina2]!=k1:
+        itog=itog+st[z]
+        z=z+1
+    else:
+        z=z+dlina2
+        itog=itog+k2
+print(itog)
+
+#Введите строку rtyet555sd555dd550
+#Введите начальную подстроку 555
+#Введите итоговую подстроку [
+#rtyet[sd[dd5
