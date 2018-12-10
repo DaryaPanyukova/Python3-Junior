@@ -1,0 +1,17 @@
+st=input("Введите предложение ")
+sim=" "
+nom=0
+Max=0
+itog=""
+for a in range(len(st)):
+    
+    if st[a]==sim:
+        slovo=st[nom:a]
+        nom=nom+len(slovo)+1
+        if len(slovo)>Max:
+            Max=len(slovo)
+            itog=slovo
+slovo2=st[nom:len(st)]
+if len(slovo2)>len(slovo):
+    itog=slovo2
+print(itog)
