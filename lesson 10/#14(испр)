@@ -1,0 +1,12 @@
+st=input("Введите строку ")
+sim=" "
+itog=""
+nach=0
+for s in range(6):
+    nom=st.find(sim)
+    slovo=st[nach:nom]
+    st=st[nom:len(st)]
+
+    itog=itog+slovo
+    nach=nach+len(slovo)+1
+print(itog)
