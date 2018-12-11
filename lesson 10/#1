@@ -1,0 +1,5 @@
+st=input("Введите строку ")
+sim1=input("Введите начальную подстроку ")
+sim2=input("Введите конечную подстроку ")
+st1=st.replace(sim1,sim2)
+print(st1)
