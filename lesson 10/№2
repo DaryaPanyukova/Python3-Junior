@@ -1,11 +1,11 @@
 st=input("Введите слово ")
 dlina=len(st)
-nom=0
+
 
 for x in range(dlina):
 
     if st[x]==st[dlina-1]:
-        nom+=1
+
         dlina-=1
         if x==dlina:
             print("Слово является палиндромом")
