@@ -1,0 +1,4 @@
+st="1+25+3"
+st2=st.split("+")
+
+print(int(st2[0])+int(st2[1])+int(st2[2]))
