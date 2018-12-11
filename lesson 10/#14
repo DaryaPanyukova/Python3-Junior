@@ -5,8 +5,7 @@ nach=0
 for s in range(6):
     nom=st.find(sim)
     slovo=st[nach:nom]
-    st=st[nom:len(st)]
+    st=st[nom+1:len(st)]
 
-    itog=itog+slovo
-    nach=nach+len(slovo)+1
+    itog=itog+slovo+" "
 print(itog)
