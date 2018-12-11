@@ -1,0 +1,8 @@
+st=input("Введите предложение ")
+sim=" "
+s=st.rfind(sim)
+slovo=st[s:len(st)]
+st=st[0:s]
+nach=st.rfind(sim)
+slovo2=st[nach+1:len(st)]
+print(slovo2+slovo)
