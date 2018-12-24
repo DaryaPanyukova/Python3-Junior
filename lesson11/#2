@@ -1,0 +1,5 @@
+from random import randint
+n=int(input("Введите кол-во повторений"))
+
+spisok=[randint(0,100) for i in range(n)]
+print(spisok)
