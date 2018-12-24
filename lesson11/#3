@@ -1,0 +1,6 @@
+n=int(input("ведите конечную степень двойки "))
+spisok=[]
+for w in range(n):
+    s=2**(w+1)
+    spisok.append(s)
+print(spisok)
