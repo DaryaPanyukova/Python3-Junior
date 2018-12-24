@@ -1,0 +1,5 @@
+a=1
+spisok=[(a+i) for i in range(25)]
+spisok.append(100)
+spisok.append(200)
+print(spisok)
