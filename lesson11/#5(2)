@@ -1,0 +1,7 @@
+from random import randint
+k=0
+n=10
+sp=[randint(-100,100) for i in range(n)]
+print(sp)
+sp2=[sp[i] for i in range(n) if sp[i]<0]
+print(sp2)
