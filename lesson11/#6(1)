@@ -1,10 +1,10 @@
-spisok2=[1,2,3,4,5,6,7]
-spisok=[]
-k=int(input("Введите индекс "))
-
-for i in range(k-1):
-    spisok.append(spisok2[i])
-
-for i in range(k,len(spisok2)):
-    spisok.append(spisok2[i])
-print(spisok)
+from random import randint
+n=10
+d=[]
+a=[randint(-50,50) for i in range(n)]
+print(a)
+k=int(input("Введите индекс элемента, который нужно исключить"))
+for i in range(n):
+    if i!=k-1:
+        d.append(a[i])
+print(d)
