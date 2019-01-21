@@ -1,0 +1,7 @@
+n=5
+spisok=[input("Введите слово ") for x in range(n)]
+dlina=0
+for x in range(n):
+    dlina=dlina+len(spisok[x])
+print(dlina)
+print("Средняя длина слова- ",float(dlina/n))
