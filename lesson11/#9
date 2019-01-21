@@ -1,0 +1,12 @@
+from random import randint
+n=10
+k=0
+spisok=[randint(-100,100) for i in range(n)]
+print(spisok)
+for i in range(n):
+    if spisok[i]>spisok[i-1] and i!=0:
+        break
+    elif spisok[i]<spisok[i-1] and i!=0:
+        k+=1
+
+print("В списке ",k," элементов,не больших,чем предыдущий элемент")
