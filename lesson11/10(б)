@@ -1,0 +1,7 @@
+n=5
+k=0
+spisok=[input("Введите слово ") for x in range(n)]
+for el in spisok:
+    if len(el)>5:
+        k+=1
+print("В списке ",k," слов(а), в которых больше пяти символов")
