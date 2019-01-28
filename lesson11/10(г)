@@ -1,0 +1,9 @@
+n=5
+Min=100
+nom=0
+spisok=[input("Введите слово ") for x in range(n)]
+for x in range(n):
+    if len(spisok[x])<Min:
+        Min=len(spisok[x])
+        nom=x+1
+print("Номер первого самого короткого слова - ",nom)
