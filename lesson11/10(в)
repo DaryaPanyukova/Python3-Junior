@@ -1,0 +1,7 @@
+n=5
+Max=0
+spisok=[input("Введите слово ") for x in range(n)]
+for x in range(n):
+    if len(spisok[x])>Max:
+        Max=len(spisok[x])
+print("В самом длинном слове ",Max, " символa(ов)")
