@@ -1,0 +1,10 @@
+sl={}
+st=input("Введите предложение ")
+for el in st:
+    if el.isdigit():
+        if el in sl:
+            sl[el]=int(sl[el])+1
+        else:
+            sl[el]=1
+print(sl)
+            
