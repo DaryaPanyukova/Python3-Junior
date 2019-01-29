@@ -1,0 +1,7 @@
+from random import randint
+n=20
+sp=[]
+for i in range(n):
+    print("Чему равно произведение ", randint(2,9)," * ", randint(2,9),"?")
+    sp.append(input(""))
+print(sp)
