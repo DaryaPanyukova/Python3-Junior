@@ -1,0 +1,9 @@
+n=5
+summ=0
+spisok=[input("Введите слово ") for x in range(n)]
+
+for x in range(n):
+    sl=spisok[x]
+    if sl[0]=="К" or sl[0]=="к":
+        summ=summ+1
+print("Кол-во слов,начинающихся на букву К - ",summ)
