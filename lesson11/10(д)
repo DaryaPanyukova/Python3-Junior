@@ -1,0 +1,8 @@
+
+n=5
+
+spisok=[input("Введите слово ") for x in range(n)]
+sp2=[len(spisok[x]) for x in range(n)]
+Max=max(sp2)
+sp=[sp2[x] for x in range(n) if sp2[x]!=Max]
+print("В слове, больше которого только в самом длинном слове",max(sp)," символа(ов)")
