@@ -1,0 +1,4 @@
+n=5
+spisok=[input("Введите слово ") for x in range(n)]
+spisok.sort()
+print(spisok)
