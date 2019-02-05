@@ -1,0 +1,25 @@
+import turtle
+def D():
+    
+    turtle.goto(35,100)
+    turtle.goto(70,0)
+    turtle.forward(15)
+    turtle.right(120)
+    turtle.forward(25)
+    turtle.backward(25)
+    turtle.goto(-15,0)
+    turtle.left(60)
+    turtle.forward(25)
+
+def P():
+    turtle.up()
+    turtle.goto(150,0)
+    turtle.down()
+    turtle.left(150)
+    turtle.forward(100)
+    turtle.right(90)
+    turtle.forward(60)
+    turtle.right(90)
+    turtle.forward(100)
+D()
+P()
