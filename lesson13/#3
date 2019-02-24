@@ -1,0 +1,8 @@
+from random import randint
+x=open("C:/Users/Максим/Desktop/prim.txt","w")
+
+
+for s in range(10):
+    x.write(str((s+1)*(1+s))+" ")
+
+x.close()
