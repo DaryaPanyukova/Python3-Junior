@@ -1,7 +1,0 @@
-x=open("C:/Users/Максим/Desktop/prim.txt","w")
-st=input("Введите строку ")
-
-for s in range(len(st)):
-    x.write(st[len(st)-1-s]+"\n")
-
-x.close()
