@@ -1,0 +1,9 @@
+
+x=open("C:/Users/Максим/Desktop/prim.txt","w")
+
+
+for s in range(10):
+    gor=input("Введите название города ")
+    x.write(gor+"\n")
+
+x.close()
