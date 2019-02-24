@@ -1,0 +1,10 @@
+from random import randint
+x=open("C:/Users/Максим/Desktop/prim.txt","w")
+
+
+for s in range(20):
+    nom=randint(-100,100)
+    if nom<0:
+        x.write(str(nom)+" ")
+
+x.close()
