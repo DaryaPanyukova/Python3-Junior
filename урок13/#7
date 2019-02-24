@@ -1,0 +1,9 @@
+from random import randint
+x=open("C:/Users/Пользователь/Desktop/prim.txt", "w")
+
+
+for s in range(20):
+    print("Произведение",randint(2,9)," * ", randint(2,9),"равно")
+    otv=input("")
+    x.write(otv+ "\n")
+x.close()
