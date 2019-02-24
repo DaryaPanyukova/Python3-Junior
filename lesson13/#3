@@ -1,4 +1,4 @@
-from random import randint
+
 x=open("C:/Users/Максим/Desktop/prim.txt","w")
 
 
