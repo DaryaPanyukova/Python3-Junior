@@ -1,0 +1,17 @@
+
+x=open("‪C:\\Users\Пользователь\Desktop\stolitsi.txt.txt", "r")
+y=open("‪C:/Users/Пользователь/Desktop/stolitsi.txt.","r")
+st=input("Введите название двух столиц")
+st2=st.split(",")
+
+if st2[0] in y:
+    for x in range(10):
+        nex=y.readline()
+        if nex==st[0]:
+            por=x
+            break
+for t in range(por):
+    gos=y.readline
+print("Город ", st2[0],"- столица государства ", gos)
+x.close()
+y.close()
