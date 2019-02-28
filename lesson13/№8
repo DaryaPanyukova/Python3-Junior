@@ -1,0 +1,9 @@
+
+x=open("C:/Users/Пользователь/Desktop/prim.txt", "w")
+st=input("Введите строку ")
+x.write(st)
+z=st.split(" ")
+
+print(z)
+
+x.close()
