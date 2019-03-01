@@ -1,0 +1,15 @@
+
+y=open("C:/Users/Пользователь/Desktop/stolitsi.txt", "r")
+Max=0
+predmax=0
+while True:
+    sl=y.readline().rstrip()
+
+    if len(sl)>Max:
+        predmax=Max
+        Max=len(sl)
+    if not sl:
+        break
+
+print("Кол-во символов в слове, больше которого только в самом длинном слове- ", predmax)
+y.close()
