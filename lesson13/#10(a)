@@ -1,9 +1,14 @@
 
 y=open("C:/Users/Пользователь/Desktop/stolitsi.txt", "r")
-sp=y.read().split("\n")
+i=0
 dlina=0
+while True:
+    sl=y.readline().rstrip()
+    i=i+1
 
-for i in range(len(sp)):
-    dlina=dlina+len(sp[i])
-print("Средняя длина слов в файле - ",dlina/len(sp))
+    dlina=dlina+len(sl)
+    if not sl:
+        break
+print("Средняя длина слов в файле - ",dlina/i)
 y.close()
+
