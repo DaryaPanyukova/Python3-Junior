@@ -1,6 +1,6 @@
 y=open("C:/Users/Пользователь/Desktop/stolitsi.txt", "r")
 
-otv=False
+
 slovo=input("Введите слово ")
 while True:
     sl=y.readline().rstrip()
