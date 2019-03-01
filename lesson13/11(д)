@@ -1,0 +1,17 @@
+y=open("C:/Users/Пользователь/Desktop/ссс.txt", "r")
+summa=0
+
+i=0
+while True:
+    sl=y.readline().rstrip()
+    if len(sl)!=0 and int(sl)<0:
+        summa+=int(sl)
+        i+=1
+    elif not sl:
+
+        break
+if i>0:
+    print("Среднее арифметическое отрицательных чисел равно ", summa/i)
+else:
+    print("Отрицательных чисел в файле нет ")
+y.close()
