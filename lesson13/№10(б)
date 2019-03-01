@@ -1,8 +1,10 @@
+
 y=open("C:/Users/Пользователь/Desktop/stolitsi.txt", "r")
 sp=y.read().split("\n")
-dlina=0
-print(sp)
+n=0
 for i in range(len(sp)):
-    dlina=dlina+len(sp[i])
-print("Средняя длина слов в файле - ",dlina/len(sp))
+    if len(sp[i])>5:
+        n+=1
+print("В файле ",n, "слов(а), в которых больше 5 символов")
 y.close()
+
