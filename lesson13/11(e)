@@ -1,0 +1,14 @@
+y=open("C:/Users/Пользователь/Desktop/ссс.txt", "r")
+summa=0
+
+Max=0
+while True:
+    sl=y.readline().rstrip()
+    if len(sl)!=0 and int(sl)>Max:
+        Max=int(sl)
+    elif not sl:
+
+        break
+print("Максимальное число в файле - ", Max)
+y.close()
+
