@@ -1,0 +1,13 @@
+y=open("C:/Users/Пользователь/Desktop/stolitsi.txt", "r")
+n=0
+while True:
+    sl=y.readline().rstrip()
+
+    if len(sl)!=0:
+        if sl[0]=="М" or sl[0]=="м":
+            n+=1
+    elif not sl:
+        break
+print("В файле ", n, " слов, которые начинаются на букву 'м'")
+y.close()
+
