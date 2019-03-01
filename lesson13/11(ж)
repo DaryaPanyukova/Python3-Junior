@@ -1,0 +1,17 @@
+y=open("C:/Users/Пользователь/Desktop/ссс.txt", "r")
+summa=0
+i=0
+nom=0
+Min=10000000000000
+while True:
+    sl=y.readline().rstrip()
+    i+=1
+    if len(sl)!=0 and int(sl)<Min:
+        Min=int(sl)
+        nom=i
+    elif not sl:
+
+        break
+print("Первое минимальное число файла записано на строке номер", nom)
+y.close()
+
