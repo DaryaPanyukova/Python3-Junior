@@ -1,0 +1,17 @@
+y=open("C:/Users/Пользователь/Desktop/stolitsi.txt", "r")
+
+otv=False
+slovo=input("Введите слово ")
+while True:
+    sl=y.readline().rstrip()
+
+    if slovo==sl:
+        print("Данное слово есть в файле ")
+        break
+    elif not sl:
+        print("Такого слова нет в файле ")
+        break
+
+y.close()
+
+
