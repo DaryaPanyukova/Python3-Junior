@@ -1,0 +1,15 @@
+y=open("C:/Users/Пользователь/Desktop/ссс.txt", "r")
+summa=0
+
+i=0
+while True:
+    sl=y.readline().rstrip()
+    if len(sl)!=0:
+        summa+=int(sl)
+        i+=1
+    if not sl:
+
+        break
+print("Среднее арифметическое всех чисел равно  ", summa/i)
+y.close()
+
