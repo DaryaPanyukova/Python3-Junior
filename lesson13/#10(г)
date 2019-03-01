@@ -1,9 +1,17 @@
 y=open("C:/Users/Пользователь/Desktop/stolitsi.txt", "r")
-sp=y.read().split("\n")
+
 Max=0
-nom=0
-for i in range(len(sp)):
-    if len(sp[i])>Max:
+i=0
+while True:
+    sl=y.readline().rstrip()
+    i+=1
+    
+    print(sl)
+    if len(sl)>Max:
         nom=i
+        Max=len(sl)
+    if not sl:
+        break
+
 print("В строке номер ", nom, " записано самое длинное слово ")
 y.close()
