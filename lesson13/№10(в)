@@ -1,0 +1,8 @@
+y=open("C:/Users/Пользователь/Desktop/stolitsi.txt", "r")
+sp=y.read().split("\n")
+Min=1000
+for i in range(len(sp)):
+    if len(sp[i])<Min:
+        Min=len(sp[i])
+print("В самом коротком слове в файле ", Min, " символа(-ов)")
+y.close()
