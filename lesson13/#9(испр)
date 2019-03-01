@@ -1,17 +1,29 @@
+#читается след строка
 
-x=open("‪C:\\Users\Пользователь\Desktop\stolitsi.txt.txt", "r")
-y=open("‪C:/Users/Пользователь/Desktop/stolitsi.txt.","r")
-st=input("Введите название двух столиц")
-st2=st.split(",")
+y=open("C:/Users/Пользователь/Desktop/stolitsi.txt", "r")
+x=open("C:/Users/Пользователь/Desktop/gosud.txt","r")
+st=input("Введите название двух столиц ")
+st2=st.split(", ")
+por=0
 
-if st2[0] in y:
-    for x in range(10):
-        nex=y.readline()
-        if nex==st[0]:
-            por=x
-            break
+for i in range(10):
+    nex=y.readline()
+    nex2=nex.rstrip()
+    if nex2==st2[0]:
+        por=i+1
+        break
 for t in range(por):
-    gos=y.readline
+    gos=x.readline()
 print("Город ", st2[0],"- столица государства ", gos)
+
+for r in range(10):
+    nex=y.readline()
+    nex2=nex.rstrip()
+    if nex2==st2[1]:
+        por=r+1
+        break
+for t in range(por):
+    gos=x.readline()
+print("Город ", st2[1],"- столица государства ", gos)
 x.close()
 y.close()
