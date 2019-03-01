@@ -1,0 +1,16 @@
+
+y=open("C:/Users/Пользователь/Desktop/ссс.txt", "r")
+chislo=int(input("Введите число "))
+
+while True:
+    sl=y.readline().rstrip()
+
+    if len(sl)!=0 and int(sl)==chislo:
+        print("Данное число есть в файле ")
+        break
+    elif not sl:
+        print("Данного числа нет в файле ")
+        break
+
+y.close()
+
