@@ -1,10 +1,11 @@
 
 y=open("C:/Users/Пользователь/Desktop/stolitsi.txt", "r")
-sp=y.read().split("\n")
 n=0
-for i in range(len(sp)):
-    if len(sp[i])>5:
+while True:
+    sl=y.readline().rstrip()
+    if len(sl)>5:
         n+=1
+    elif not sl:
+        break
 print("В файле ",n, "слов(а), в которых больше 5 символов")
 y.close()
-
