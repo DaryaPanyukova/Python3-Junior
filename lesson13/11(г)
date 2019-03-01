@@ -1,0 +1,14 @@
+y=open("C:/Users/Пользователь/Desktop/ссс.txt", "r")
+summa=0
+
+i=0
+while True:
+    sl=y.readline().rstrip()
+    if len(sl)!=0 and int(sl)%2==0:
+        i+=1
+    elif not sl:
+
+        break
+print("В файле", i, " четных чисел(-а)")
+y.close()
+
