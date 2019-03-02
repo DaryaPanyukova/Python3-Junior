@@ -1,0 +1,17 @@
+y=open("C:/Users/Пользователь/Desktop/ссс.txt", "w")
+n=1000
+
+kol=0
+
+while kol!=10:
+    Del=0
+    if n%2!=0:
+        for i in range(1,int(n/2+0.5)):
+            if n%i==0:
+                Del+=1
+    if Del==1:
+        kol+=1
+        y.write(str(n)+"\n")
+    n+=1
+    
+y.close()
