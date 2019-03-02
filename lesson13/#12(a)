@@ -1,5 +1,4 @@
 y=open("C:/Users/Пользователь/Desktop/ссс.txt", "r")
-summa=0
 i=0
 
 while True:
@@ -7,8 +6,7 @@ while True:
     if len(sl)==0:
         break
     elif sl[len(sl)-1]==".":
-        
-        print(sl)
+
         i+=1
     elif not sl:
 
