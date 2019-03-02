@@ -1,0 +1,13 @@
+y=open("C:/Users/Пользователь/Desktop/ссс.txt", "r")
+kol=0
+
+while True:
+    sl=y.readline().rstrip()
+    kol=kol+sl.count(" ")+1
+
+    
+    if not sl:
+
+        break
+print("В файле ", kol-1, " слов(а)")
+y.close()
