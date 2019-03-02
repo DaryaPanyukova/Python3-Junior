@@ -1,6 +1,5 @@
 y=open("C:/Users/Пользователь/Desktop/ссс.txt", "r")
-summa=0
-i=0
+
 Max=0
 while True:
     sl=y.readline().rstrip()
