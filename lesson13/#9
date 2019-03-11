@@ -1,4 +1,4 @@
-#читается след строка
+
 
 y=open("C:/Users/Пользователь/Desktop/stolitsi.txt", "r")
 x=open("C:/Users/Пользователь/Desktop/gosud.txt","r")
