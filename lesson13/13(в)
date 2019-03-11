@@ -1,0 +1,23 @@
+y=open("C:/Users/Пользователь/Desktop/ссс.txt", "a")
+x=open("C:/Users/Пользователь/Desktop/gosud.txt","r")
+k=int(input("Введите номер первой строки "))
+k2=int(input("Введите номер второй строки "))
+
+sp=[]
+while True:
+    st=x.readline()
+    sp.append(st)
+    if not x or len(st)==0:
+        break
+nom=sp[k]
+sp[k]=sp[k2]
+sp[k2]=nom
+s=len(sp)
+sp.pop(s-1)
+
+for u in range(len(sp)):
+    print(sp[u])
+    x.write(sp[u])
+    
+x.close()
+y.close()
