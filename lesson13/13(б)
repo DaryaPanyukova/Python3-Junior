@@ -1,0 +1,12 @@
+y=open("C:/Users/Пользователь/Desktop/ссс.txt", "a")
+x=open("C:/Users/Пользователь/Desktop/gosud.txt","r")
+k=input("Введите строку ")
+
+while True:
+    st=x.readline()
+    y.write(st)
+    if not x or len(st)==0:
+        break
+y.write("\n"+k)
+x.close()
+y.close()
