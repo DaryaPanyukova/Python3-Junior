@@ -1,0 +1,19 @@
+y=open("C:/Users/Пользователь/Desktop/ссс.txt", "a")
+x=open("C:/Users/Пользователь/Desktop/gosud.txt","r")
+sp=[]
+
+while True:
+    st=x.readline()
+    print(st)
+    sp.append(st)
+    if not x:
+        break
+    elif len(st)==0:
+        break
+print(sp)
+sp.reverse()
+sp.insert(2,"\n")
+for e in range(len(sp)):
+    y.write(sp[e])
+x.close()
+y.close()
