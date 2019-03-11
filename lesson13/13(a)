@@ -1,0 +1,14 @@
+y=open("C:/Users/Пользователь/Desktop/ссс.txt", "a")
+x=open("C:/Users/Пользователь/Desktop/gosud.txt","r")
+k=int(input("Введите номер строки, которую нужно удалить "))
+sp=[]
+while True:
+    st=x.readline()
+    sp.append(st)
+    if not x or len(st)==0:
+        break
+sp.pop(k-1)
+for s in range(len(sp)):
+    y.write(sp[s])
+x.close()
+y.close()
