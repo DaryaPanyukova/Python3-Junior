@@ -1,0 +1,40 @@
+from tkinter import *
+from math import pi
+
+def Raschet(event):
+    radius=float(r.get())
+    S=pi*radius**2
+    S=str("{:.3f}".format(S))
+    pl.delete(0,END)
+    pl.insert(0,S)
+    
+def Vihod(event):
+    root.destroy()
+
+root=Tk()
+root.title("Площадь круга ")
+root.geometry("250x150")
+
+r=StringVar()
+pl=StringVar()
+
+nadp1=Label(root, text="Введите радиус ", font="Arial 10")
+vvod=Entry(root, width=10, textvariable=r)
+
+nadp2=Label(root,text="Площадь круга", font="Arial 10")
+pl=Entry(root,width=10, textvariable=pl)
+
+raschet=Button(root, text="Расчет", width=10)
+vihod=Button(root,text="Выход", width=10)
+
+nadp1.place(x=10,y=10)
+vvod.place(x=120,y=10)
+nadp2.place(x=10,y=30)
+pl.place(x=120,y=30)
+raschet.place(x=10,y=70)
+vihod.place(x=130,y=70)
+
+raschet.bind('<Button-1>', Raschet)
+vihod.bind("<Button-1>",Vihod)
+
+root.mainloop()
