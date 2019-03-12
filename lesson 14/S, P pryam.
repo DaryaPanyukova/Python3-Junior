@@ -1,0 +1,61 @@
+from tkinter import *
+
+
+def Raschet(event):
+    stor_a=float(a.get())
+    stor_b=float(b.get())
+    S=stor_a*stor_b
+#    S=str("{:.3f}".format(S))
+    pl.delete(0,END)
+    pl.insert(0,S)
+    P=2*(stor_a+stor_b)
+    per.delete(0,END)
+    per.insert(0,P)
+    
+def Vihod(event):
+    root.destroy()
+
+
+root=Tk()
+root.title("Площадь  и периметр прямоугольника ")
+root.geometry("300x150")
+
+a=StringVar()
+b=StringVar()
+S=StringVar()
+P=StringVar()
+
+nadp1=Label(root, text="Введите длину ", font="Arial 10")
+vvod=Entry(root, width=10, textvariable=a)
+
+nadp3=Label(root, text="Введите ширину ", font="Arial 10")
+vvod2=Entry(root, width=10, textvariable=b)
+
+nadp2=Label(root,text="Площадь прямоугольника", font="Arial 10")
+pl=Entry(root,width=10, textvariable=S)
+
+nadp4=Label(root,text="Периметр прямоугольника ", font="Arial 10")
+per=Entry(root,width=10, textvariable=P)
+
+raschet=Button(root, text="Расчет", width=10)
+vihod=Button(root,text="Выход", width=10)
+
+
+nadp1.place(x=10,y=10)
+vvod.place(x=180,y=10)
+
+nadp3.place(x=10,y=30)
+vvod2.place(x=180,y=30)
+
+raschet.place(x=10,y=100)
+vihod.place(x=180,y=100)
+
+nadp2.place(x=10,y=50)
+pl.place(x=180,y=50)
+
+nadp4.place(x=10, y=70)
+per.place(x=180,y=70)
+raschet.bind('<Button-1>', Raschet)
+vihod.bind("<Button-1>",Vihod)
+
+root.mainloop()
