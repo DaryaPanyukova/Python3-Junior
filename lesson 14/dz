@@ -1,0 +1,79 @@
+from tkinter import *
+import math
+
+def Raschet_s(event):
+    stor_a=float(a.get())
+    stor_b=float(b.get())
+    stor_c=float(c.get())
+    p=(a+b+c)/2
+    S=sqrt(p(p-stor_a)(p-stor_b)(p-stor_c))
+
+    pl.delete(0,END)
+    pl.insert(0,S)
+def Raschet_p(event):
+    stor_a=float(a.get())
+    stor_b=float(b.get())
+    stor_c=float(c.get())
+    P=stor_a+stor_b+stor_c
+    per.delete(0,END)
+    per.insert(0,P)
+    
+def Vihod(event):
+    root.destroy()
+
+
+root=Tk()
+root.title("Площадь  и периметр прямоугольника ")
+root.geometry("300x150")
+
+a=StringVar()
+b=StringVar()
+c=StringVar()
+S=StringVar()
+P=StringVar()
+
+nadp1=Label(root, text="Введите первую сторону ", font="Arial 10")
+vvod=Entry(root, width=10, textvariable=a)
+
+nadp2=Label(root, text="Введите вторую сторону ", font="Arial 10")
+vvod2=Entry(root, width=10, textvariable=b)
+
+nadp3=Label(root,text="Введите третью сторону", font="Arial 10")
+vvod3=Entry(root,width=10, textvariable=c)
+
+
+nadp4=Label(root,text="Площадь прямоугольника", font="Arial 10")
+pl=Entry(root,width=10, textvariable=S)
+
+nadp5=Label(root,text="Периметр прямоугольника ", font="Arial 10")
+per=Entry(root,width=10, textvariable=P)
+
+
+raschet_p=Button(root, text="Расчет периметра",width=10)
+raschet_s=Button(root, text="Расчет площади", width=10)
+vihod=Button(root,text="Выход", width=10)
+
+
+nadp1.place(x=10,y=10)
+vvod.place(x=180,y=10)
+
+nadp2.place(x=10,y=30)
+vvod2.place(x=180, y=30)
+
+nadp3.place(x=10,y=100)
+vvod3.place(x=180,y=30)
+
+raschet_p.place(x=10, y=100)
+raschet_s.place(x=10,y=100)
+vihod.place(x=180,y=100)
+
+nadp2.place(x=10,y=50)
+pl.place(x=180,y=50)
+
+nadp4.place(x=10, y=70)
+per.place(x=180,y=70)
+raschet_p.bind('<Button-1>', Raschet_p)
+raschet_s.bind("<Button-1>", Raschet_s)
+vihod.bind("<Button-1>",Vihod)
+
+root.mainloop()
