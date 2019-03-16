@@ -1,13 +1,13 @@
 from tkinter import *
-import math
+from math import sqrt
 
 def Raschet_s(event):
     stor_a=float(a.get())
     stor_b=float(b.get())
     stor_c=float(c.get())
-    p=(a+b+c)/2
-    S=sqrt(p(p-stor_a)(p-stor_b)(p-stor_c))
-
+    p=(stor_a+stor_b+stor_c)/2
+    S=sqrt(p*(p-stor_a)*(p-stor_b)*(p-stor_c))
+    S=str("{:.3f}".format(S))
     pl.delete(0,END)
     pl.insert(0,S)
 def Raschet_p(event):
@@ -24,7 +24,7 @@ def Vihod(event):
 
 root=Tk()
 root.title("Площадь  и периметр прямоугольника ")
-root.geometry("300x150")
+root.geometry("400x300")
 
 a=StringVar()
 b=StringVar()
@@ -49,29 +49,29 @@ nadp5=Label(root,text="Периметр прямоугольника ", font="Ar
 per=Entry(root,width=10, textvariable=P)
 
 
-raschet_p=Button(root, text="Расчет периметра",width=10)
-raschet_s=Button(root, text="Расчет площади", width=10)
+raschet_p=Button(root, text="Расчет периметра",width=20)
+raschet_s=Button(root, text="Расчет площади", width=20)
 vihod=Button(root,text="Выход", width=10)
 
 
-nadp1.place(x=10,y=10)
-vvod.place(x=180,y=10)
+nadp1.place(x=10,y=0)
+vvod.place(x=180,y=0)
 
 nadp2.place(x=10,y=30)
-vvod2.place(x=180, y=30)
+vvod2.place(x=180,y=30)
 
-nadp3.place(x=10,y=100)
-vvod3.place(x=180,y=30)
+nadp3.place(x=10,y=60)
+vvod3.place(x=180,y=60)
 
 raschet_p.place(x=10, y=100)
-raschet_s.place(x=10,y=100)
-vihod.place(x=180,y=100)
+raschet_s.place(x=260,y=100)
+vihod.place(x=10,y=200)
 
-nadp2.place(x=10,y=50)
-pl.place(x=180,y=50)
+nadp4.place(x=10,y=130)
+pl.place(x=180,y=130)
 
-nadp4.place(x=10, y=70)
-per.place(x=180,y=70)
+nadp5.place(x=10, y=160)
+per.place(x=180,y=160)
 raschet_p.bind('<Button-1>', Raschet_p)
 raschet_s.bind("<Button-1>", Raschet_s)
 vihod.bind("<Button-1>",Vihod)
