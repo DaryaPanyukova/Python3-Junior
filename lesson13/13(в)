@@ -1,7 +1,7 @@
 y=open("C:/Users/Пользователь/Desktop/ссс.txt", "a")
 x=open("C:/Users/Пользователь/Desktop/gosud.txt","r")
-k=int(input("Введите номер первой строки "))
-k2=int(input("Введите номер второй строки "))
+k=int(input("Введите номер первой строки "))-1
+k2=int(input("Введите номер второй строки "))-1
 
 sp=[]
 while True:
@@ -9,6 +9,7 @@ while True:
     sp.append(st)
     if not x or len(st)==0:
         break
+
 nom=sp[k]
 sp[k]=sp[k2]
 sp[k2]=nom
@@ -17,7 +18,7 @@ sp.pop(s-1)
 
 for u in range(len(sp)):
     print(sp[u])
-    x.write(sp[u])
+    y.write(sp[u])
     
 x.close()
 y.close()
