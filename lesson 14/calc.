@@ -1,0 +1,68 @@
+from tkinter import *
+def Vihod(event):
+    root.destroy()
+
+def calculate(even):
+    n1=float(chislo_1.get())
+    n2=float(chislo_2.get())
+    if calc.get()==1:
+        otvet=n1+n2
+    elif calc.get()==2:
+        otvet=n1*n2
+    elif calc.get()==3:
+        otvet1=n1/n2
+        otvet="{:.3f}".format(otvet1)
+    else:
+        otvet=n1-n2
+    vvod3.delete(0, END)
+    vvod3.insert(0, otvet)
+
+
+root=Tk()
+root.title("Калькулятор")
+root.geometry("400x250")
+calc=IntVar()
+chislo_1=StringVar()
+chislo_2=StringVar()
+otvet=StringVar()
+calc.set(1)
+
+nadp1=Label(root, text="Введите первое число", font="Arial 10")
+nadp2=Label(root, text="Введите второе число", font="Arial 10")
+
+vvod1=Entry(root,width=10, textvariable=chislo_1)
+vvod2=Entry(root, width=10, textvariable=chislo_2)
+
+nadp3=Label(root, text="Результат", font="Arial 10")
+vvod3=Entry(root, width=10, textvariable=otvet)
+
+rasch=Button(root, text="Расчет")
+vihod=Button(root, text="Выход")
+
+plus=Radiobutton(root, text="Сложение", font="Arial 10", value=1, variable=calc)
+umnog=Radiobutton(root, text="Умножение", font="Arial 10", value=2, variable=calc)
+delen=Radiobutton(root, text="Деление", font="Arial 10", value=3, variable=calc)
+vich=Radiobutton(root, text="Вычитание", font="Arial 10", value=4, variable=calc)
+
+
+
+
+nadp1.place(x=0, y=10)
+nadp2.place(x=0, y=40)
+nadp3.place(x=0, y=70)
+rasch.place(x=10, y=150)
+vihod.place(x=190, y=150)
+
+vvod1.place(x=180, y=10)
+vvod2.place(x=180, y=40)
+vvod3.place(x=180, y=70)
+
+plus.place(x=0, y=110)
+umnog.place(x=180, y=110)
+vich.place(x=90, y=110)
+delen.place(x=280, y=110)
+
+vihod.bind("<Button-1>", Vihod)
+rasch.bind("<Button-1>", calculate)
+
+root.mainloop()
