@@ -1,0 +1,35 @@
+import random
+from tkinter import *
+
+#chislo=random.randint(1,100)
+#if chislo%2==0:
+#    res="Четное"
+#else:
+#    res="Нечетное"
+
+#if otv==res:
+ #   print("Верно")
+#else:
+#    print("Неверно")
+
+
+
+root=Tk()
+root.title("Игра четное/нечетное")
+root.geometry("600x400")
+
+calc=IntVar()
+
+
+nadp1=Label(root, text="Компьютер загадал число.Какое оно: четное или нечетное")
+
+сhetn=Radiobutton(root, text="Четное", font="Arial 10", value=1, variable=calc)
+nech=Radiobutton(root, text="Нечетное", font="Arial 10", value=2, variable=calc)
+
+otvet=Button(root, text="Проверить ответ")
+res=Entry(root, width=10)
+
+
+nadp1.place(x=40, y=20)
+сhetn.place(x=70, y=50)
+root.mainloop()
