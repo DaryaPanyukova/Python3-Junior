@@ -23,7 +23,7 @@ def Vihod(event):
 
 
 root=Tk()
-root.title("Площадь  и периметр прямоугольника ")
+root.title("Площадь  и периметр треугольника ")
 root.geometry("400x300")
 
 a=StringVar()
@@ -42,10 +42,10 @@ nadp3=Label(root,text="Введите третью сторону", font="Arial 
 vvod3=Entry(root,width=10, textvariable=c)
 
 
-nadp4=Label(root,text="Площадь прямоугольника", font="Arial 10")
+nadp4=Label(root,text="Площадь треугольника", font="Arial 10")
 pl=Entry(root,width=10, textvariable=S)
 
-nadp5=Label(root,text="Периметр прямоугольника ", font="Arial 10")
+nadp5=Label(root,text="Периметр треугольника ", font="Arial 10")
 per=Entry(root,width=10, textvariable=P)
 
 
