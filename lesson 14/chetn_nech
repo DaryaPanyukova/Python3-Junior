@@ -1,17 +1,23 @@
 import random
 from tkinter import *
 
-#chislo=random.randint(1,100)
-#if chislo%2==0:
-#    res="Четное"
-#else:
-#    res="Нечетное"
 
-#if otv==res:
- #   print("Верно")
-#else:
-#    print("Неверно")
+chislo=random.randint(1,100)
+if chislo%2==0:
+    Res="Четное"
+else:
+    Res="Нечетное"
 
+
+def Resultat(event):
+    res.delete(0,END)
+    if calc.get()==1 and Res=="Четное" or calc.get()==2 and Res=="Нечетное":
+        otv="Верно. Загаданное число - " + str(chislo)
+        res.insert(0,otv)
+
+    else:
+        otv="Неверно. Загаданное число - "+ str(chislo)
+        res.insert(0,otv)
 
 
 root=Tk()
@@ -27,9 +33,13 @@ nadp1=Label(root, text="Компьютер загадал число.Какое 
 nech=Radiobutton(root, text="Нечетное", font="Arial 10", value=2, variable=calc)
 
 otvet=Button(root, text="Проверить ответ")
-res=Entry(root, width=10)
+res=Entry(root, width=30)
 
 
 nadp1.place(x=40, y=20)
-сhetn.place(x=70, y=50)
+сhetn.place(x=100, y=50)
+nech.place(x=230, y=50)
+otvet.place(x=150, y=90)
+res.place(x=120, y=130)
+otvet.bind("<Button-1>",Resultat )
 root.mainloop()
