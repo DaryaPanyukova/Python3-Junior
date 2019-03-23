@@ -1,7 +1,7 @@
 from random import randint
 import time
-igrock1=input("Введите имя игрока 1 ")
-igrock=input("Введите имя игрока 2")
+igrok1=input("Введите имя игрока 1 ")
+igrok2=input("Введите имя игрока 2")
 print("Кубик бросает",igrok1)
 time.sleep(3)
 n1=randint(1,6)
