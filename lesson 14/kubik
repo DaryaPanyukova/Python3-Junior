@@ -1,28 +1,29 @@
 from random import randint
 from tkinter import *
-
+chislo1=randint(1,6)
+chislo2=randint(1,6)
 
 def BROSOK_1(event):
 
-    chislo1=randint(1,6)
+    #chislo1=randint(1,6)
     res1.delete(0,END)
     otv="Выпало число " + str(chislo1)
     res1.insert(0, otv)
 
 def BROSOK_2(event):
 
-    chislo2=randint(1,6)
+    #chislo2=randint(1,6)
     res2.delete(0, END)
     otv="Выпало число " + str(chislo2)    
     res2.insert(0, otv)
     
-def RES():
+def RES(event):
 
     res.delete(0,END)
     if chislo1>chislo2:
         otvet="Победа игрока 1"
         res.insert(0, otvet )
-    elif n2>n1:
+    elif chislo1<chislo2:
         otvet="Победа игрока 2"
         res.insert(0, otvet )
     else:
@@ -38,6 +39,7 @@ nadp_igrok2=Label(root, text="Игрок 2")
 
 brosok_1=Button(root, text= "Бросить кубик")
 brosok_2=Button(root, text= "Бросить кубик")
+nadp_res=Button(root, text="Показать результат")
 
 res1=Entry(root, width=20)
 res2=Entry(root, width=20)
@@ -50,9 +52,15 @@ brosok_2.place(x=300, y=60)
 res1.place(x=35, y=100)
 res2.place(x=285, y=100)
 res.place(x=160, y=140)
+nadp_res.place(x=160, y=170)
+
+chislo1=randint(1,6)
+chislo2=randint(1,6)
 
 brosok_1.bind("<Button-1>",BROSOK_1 )
 brosok_2.bind("<Button-1>",BROSOK_2 )
-RES()
+nadp_res.bind("<Button-1>", RES)
+
 
 root.mainloop()
+
