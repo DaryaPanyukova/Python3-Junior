@@ -1,0 +1,69 @@
+from tkinter import *
+
+
+def itog(event):
+    summa=0
+    
+    if f1.get()==1:
+        summa=summa+300
+    if f2.get()==1:
+        summa=summa+250
+    if f4.get()==1:
+        summa=summa+270
+    if f5.get()==1:
+        summa=summa+300
+    if f6.get()==1:
+        summa=summa+360
+    if f7.get()==1:
+        summa=summa+230
+    if f8.get()==1:
+        summa=summa+270
+    vivod.delete(0, END)
+    vivod.insert(0, str(summa))
+
+root=Tk()
+root.title("МЕНЮ")
+root.geometry("350x400")
+
+
+summa=IntVar()
+f1=IntVar()
+f2=IntVar()
+f3=IntVar()
+f4=IntVar()
+f5=IntVar()
+f6=IntVar()
+f7=IntVar()
+f8=IntVar()
+
+nadp_1=Label(root, text="Салат")
+fl1=Checkbutton(root, text="Цезарь.....................300", onvalue=1, offvalue=0, variable=f1)
+fl2=Checkbutton(root, text="Оливье........................250", onvalue=1, offvalue=0, variable=f2)
+
+fl4=Checkbutton(root, text="Греческий........................270", onvalue=1, offvalue=0, variable=f4)
+
+fl5=Checkbutton(root, text="Морской........................300", onvalue=1, offvalue=0, variable=f5)
+nadp_2=Label(root, text="Первое блюдо")
+fl6=Checkbutton(root, text="Борщ....................360", onvalue=1, offvalue=0, variable=f6)
+fl7=Checkbutton(root, text="Гречневый...............230", onvalue=1, offvalue=0, variable=f7)
+fl8=Checkbutton(root, text="Овощной.................270", onvalue=1, offvalue=0, variable=f8)
+itog_schet=Button(root, text="Итог")
+vivod=Entry(root, width=15, textvariable=summa)
+
+nadp_1.place(x=40, y=20)
+fl1.place(x=20, y=40)
+fl2.place(x=20, y=60)
+
+fl4.place(x=20, y=80)
+nadp_2.place(x=40, y=110)
+fl5.place(x=20, y=140)
+fl6.place(x=20, y=160)
+fl7.place(x=20, y=180)
+fl8.place(x=20, y=200)
+
+itog_schet.place(x=20, y=245)
+vivod.place(x=90,y=250)
+
+itog_schet.bind("<Button-1>", itog)
+
+root.mainloop()
