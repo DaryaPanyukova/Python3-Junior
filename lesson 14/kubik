@@ -1,29 +1,58 @@
 from random import randint
-import time
 from tkinter import *
 
-#igrok1=input("Введите имя игрока 1 ")
-#igrok2=input("Введите имя игрока 2")
-#print("Кубик бросает",igrok1)
-#time.sleep(3)
-#n1=randint(1,6)
-#print("Выпало ", n1)
-#print("Кубик бросает",igrok2)
-#time.sleep(3)
-#n2=randint(1,6)
-#print("Выпало ", n2)
-#if n1>n2:
-#      print("Выиграл игрок 1")
-#elif n2>n1:
-#      print("Выиграл игрок 2")
-#else:
-#     print("Ничья") 
+
+def BROSOK_1(event):
+
+    chislo1=randint(1,6)
+    res1.delete(0,END)
+    otv="Выпало число " + str(chislo1)
+    res1.insert(0, otv)
+
+def BROSOK_2(event):
+
+    chislo2=randint(1,6)
+    res2.delete(0, END)
+    otv="Выпало число " + str(chislo2)    
+    res2.insert(0, otv)
+    
+def RES():
+
+    res.delete(0,END)
+    if chislo1>chislo2:
+        otvet="Победа игрока 1"
+        res.insert(0, otvet )
+    elif n2>n1:
+        otvet="Победа игрока 2"
+        res.insert(0, otvet )
+    else:
+        otvet="Ничья"
+        res.insert(0, otvet )
 
 root=Tk()
 root.title("Кубик")
 root.geometry("500x300")
-nadp_name1=Label(root, text="Имя первого игрока")
-nadp_name2=Label(root, text="Имя второго игрока")
+
 nadp_igrok1=Label(root, text="Игрок 1")
 nadp_igrok2=Label(root, text="Игрок 2")
 
+brosok_1=Button(root, text= "Бросить кубик")
+brosok_2=Button(root, text= "Бросить кубик")
+
+res1=Entry(root, width=20)
+res2=Entry(root, width=20)
+res=Entry(root, width=20)
+
+nadp_igrok1.place(x=70,y=20)
+nadp_igrok2.place(x=320, y=20)
+brosok_1.place(x=50, y=60)
+brosok_2.place(x=300, y=60)
+res1.place(x=35, y=100)
+res2.place(x=285, y=100)
+res.place(x=160, y=140)
+
+brosok_1.bind("<Button-1>",BROSOK_1 )
+brosok_2.bind("<Button-1>",BROSOK_2 )
+RES()
+
+root.mainloop()
