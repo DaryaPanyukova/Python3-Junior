@@ -1,0 +1,19 @@
+from tkinter import Tk, Canvas
+import random
+root=Tk()
+
+
+colors=["red", "green", "gray", "blue", "orange", "white", "yellow", "brown","violet", "aquamarine", "azure", "coral", "DeepPink", "firebrick", "gold", "GreenYellow", "honeydew", "IndianRed", "ivory", "lavender" , "LightYellow", "maroon", "navy", "pink", "salmon", "orchid", "sienna", "snow", "tan", "tomato", "turquoise"]
+c=Canvas(root, width=800, height=800, bg="black")
+c.pack()
+
+while True:
+    x0=random.randint(0,800)
+    y0=random.randint(0,800)
+    x1=random.randint(0,160)
+    y1=random.randint(0,160)
+    c.create_rectangle(x0,y0, x0+y1, y0+y1, fill=random.choice(colors), outline=random.choice(colors), width=random.randint(1,5))
+    c.create_oval(x0,y0, x0+x1, y0+x1, fill=random.choice(colors), outline=random.choice(colors), width=random.randint(1,5))
+    root.update()
+    
+    
