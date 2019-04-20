@@ -1,0 +1,120 @@
+import random
+import time
+from tkinter import Tk,Canvas, HIDDEN, NORMAL
+
+
+def next_shape():
+    global shape, prev_color, current_color
+    prev_color=current_color
+    c.delete(shape)
+    if len(sp)>0:
+        shape=sp.pop()
+        c.itemconfigure(shape, state=NORMAL)
+        current_color=c.itemcget(shape, "fill")
+        root.after(1000, next_shape)
+    
+    else:
+        c.unbind("q")
+        c.unbind("p")
+        if score1>score2:
+            c.create_text(200,200, text="Победил игрок 1")
+        elif score1<score2:
+            c.create_text(200,200, text="Победил игрок 2")
+
+        else:
+
+            c.create_text(200,200, text="Ничья")
+        c.pack()
+
+def snap(event):
+    global shape, score1,score2
+    valid=False
+    c.delete(shape)
+    if prev_color==current_color:
+        valid=True
+    if valid:
+        if event.char=="q":
+            score1+=1
+            shape=c.create_text(200,200, text="Игрок 1 получает 1 очко")
+        else:
+            score2+=1
+            shape=c.create_text(200,200, text="Игрок 2 получает 1 очко")
+    else:
+        if event.char=="q":
+            score1-=1
+            shape=c.create_text(200,200, text="Игрок 1 теряет 1 очко")
+        else:
+            score2-=1
+            shape=c.create_text(200,200, text="Игрок 2 теряет 1 очко")
+    c.pack()
+    root.update_idletasks()
+    time.sleep(1)
+
+root=Tk()
+root.title("СНЭП")
+c=Canvas(root, width= 400, height=400)
+
+sp=[]
+circle=c.create_oval(35,20,365,350, outline="black", fill="black", state=HIDDEN)
+sp.append(circle)
+
+circle=c.create_oval(35,20,365,350, outline="yellow", fill="yellow", state=HIDDEN)
+sp.append(circle)
+
+circle=c.create_oval(35,20,365,350, outline="blue", fill="blue", state=HIDDEN)
+sp.append(circle)
+
+circle=c.create_oval(35,20,365,350, outline="red", fill="red", state=HIDDEN)
+sp.append(circle)
+
+rect=c.create_rectangle(35,100,365,270, outline="red", fill="red", state=HIDDEN)
+sp.append(rect)
+
+
+rect=c.create_rectangle(35,100,365,270, outline="blue", fill="blue", state=HIDDEN)
+sp.append(rect)
+
+
+rect=c.create_rectangle(35,100,365,270, outline="yellow", fill="yellow", state=HIDDEN)
+sp.append(rect)
+
+
+rect=c.create_rectangle(35,100,365,270, outline="black", fill="black", state=HIDDEN)
+sp.append(rect)
+
+
+
+square=c.create_rectangle(35,20,365,350, outline="black", fill="black", state=HIDDEN)
+sp.append(square)
+
+
+square=c.create_rectangle(35,20,365,350, outline="blue", fill="blue", state=HIDDEN)
+sp.append(square)
+
+
+
+square=c.create_rectangle(35,20,365,350, outline="yellow", fill="yellow", state=HIDDEN)
+sp.append(square)
+
+
+square=c.create_rectangle(35,20,365,350, outline="red", fill="red", state=HIDDEN)
+sp.append(square)
+
+
+c.pack()
+
+random.shuffle(sp)
+
+shape=None
+prev_color=""
+current_color=""
+score1=0
+score2=0
+
+root.after(3000, next_shape)
+c.bind("q", snap)
+c.bind("p", snap)
+c.focus_set()
+
+root.mainloop()
+
