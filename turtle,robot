@@ -1,0 +1,70 @@
+import turtle as t
+
+
+def pryam(a, b, color):
+    t.pendown()
+    t.pensize(1)
+    t.color(color)
+    t.begin_fill()
+    for i in range(2):
+        t.forward(a)
+        t.right(90)
+        t.forward(b)
+        t.right(90)
+    t.end_fill()
+    t.penup()
+
+t.penup()
+
+t.bgcolor("Dodger blue")
+
+
+t.goto(-100, -150)
+pryam(50,20,"blue")
+t.goto(-30, -150)
+pryam(50,20, "blue")
+
+
+t.goto(-25, -50)
+pryam(15,100,"grey")
+t.goto(-55, -50)
+pryam(-15,100, "grey")
+
+
+t.goto(-90, 100)
+pryam(100,150,"red")
+
+t.goto(-150, 70)
+pryam(60,15,"grey")
+t.goto(-150, 110)
+pryam(15,40, "grey")
+
+t.goto(10, 70)
+pryam(60,15,"grey")
+t.goto(55, 110)
+pryam(15,40, "grey")
+
+t.goto(-50, 120)
+pryam(15,20,"grey")
+
+
+t.goto(-85, 170)
+pryam(80,50,"grey")
+
+
+
+t.goto(-60, 160)
+pryam(30,10,"white")
+t.goto(-55, 155)
+pryam(5,5, "black")
+t.goto(-40, 155)
+pryam(5,5, "black")
+
+t.goto(-65, 135)
+pryam(40,5, "black")
+
+t.hideturtle()
+
+
+
+
