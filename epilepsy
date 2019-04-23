@@ -1,0 +1,29 @@
+import turtle as t
+from itertools import cycle
+
+colors=cycle(["red", "green", "gray", "blue", "orange", "white", "yellow", "brown","violet", "aquamarine", "azure", "coral", "DeepPink", "firebrick", "gold", "GreenYellow", "honeydew", "IndianRed", "ivory", "lavender" , "LightYellow", "maroon", "navy", "pink", "salmon", "orchid", "sienna", "snow", "tan", "tomato", "turquoise"])
+
+def draw_shape(size, angle, shift, shape):
+    t.pencolor(next(colors))
+    next_shape=""
+    if shape=="circle":
+        t.circle(size)
+        next_shape="square"
+    elif shape=="square":
+        for i in range(4):
+            t.forward(size*2)
+            t.left(90)
+        next_shape="triangle"
+    elif shape=="triangle":
+        for i in range(3):
+            t.forward(size*2.5)
+            t.left(120)
+        next_shape="circle"
+    t.right(angle)
+    t.forward(shift)
+    draw_shape(size, angle+2, shift+2, next_shape)
+
+t.bgcolor("black")
+t.speed("fastest")
+t.pensize(5)
+draw_shape(10, 0, 1,"circle")
