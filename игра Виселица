@@ -40,7 +40,7 @@ else:
 
 
 while lives>0:
-    print(clue)
+    print(*clue)
     print("Осталось жизней: "+heart_symbol*lives)
     guess=input("Угадайте букву или слово целиком ")
     print()
