@@ -1,0 +1,61 @@
+from tkinter import *
+import random
+
+def check_letter(event):
+    try_letter=letter.get()
+    if try_letter in secret_word:
+        
+        index=secret_word.index(try_letter)+1
+        print("correct")
+        canvas.itemconfigure(correct_letters, state=NORMAL)
+    else:
+        print("wrong")
+
+    vvod.delete(0, END)
+
+
+#слова не длиннее 12 букв
+words=["корова","собака","выдра","белка","медведь","петух","волк"]
+secret_word=random.choice(words)
+root=Tk()
+root.title("Game")
+root.resizable(False, False)
+root.wm_attributes("-topmost", 1)
+canvas=Canvas(root, width=700, height=500,bd=0,highlightthickness=0)
+canvas.pack()
+
+letter=StringVar()
+x=0
+y=0
+x1=40
+y1=300
+x2=90
+y2=350
+print(secret_word[0])
+for i in range(len(secret_word)):
+
+
+    kv=canvas.create_rectangle(x1+x,y1,x2+x,y2, fill="blue")
+    correct_letters=canvas.create_text(x1+x,y1,x2+x,y2, text=secret_word[i], fill="white", outline="white", state=NORMAL)
+    x+=53
+
+
+vvod_button=Button(root, text="Ввод", width=20)
+vvod_button.place(x=300, y=210)
+vvod_button.bind("<Button-1>", check_letter)
+
+lives=5
+heart_symbol=u'\u2764'
+nadp_lives=Label(root,text=heart_symbol*lives, font="Arial 20")
+nadp_lives.place(x=0, y=100)
+
+nadp=Label(root,text="Введите букву", font="Arial 20")
+nadp.place(x=0,y=200)
+
+nadp1=Label(root,text="Виселицца", font="Arial 40")
+nadp1.place(x=200,y=10)
+
+vvod=Entry(root, width=10, textvariable=letter)
+vvod.place(x=200,y=210)
+
+root.mainloop()
