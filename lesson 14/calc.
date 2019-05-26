@@ -2,7 +2,7 @@ from tkinter import *
 def Vihod(event):
     root.destroy()
 
-def calculate(even):
+def calculate(event):
     n1=float(chislo_1.get())
     n2=float(chislo_2.get())
     if calc.get()==1:
