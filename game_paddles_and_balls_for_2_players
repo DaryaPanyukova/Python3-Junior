@@ -13,19 +13,19 @@ max_score=5
 
 class Score:
     def __init__(self, canvas):
-        self.score=0
+        self.score_1=0
         self.canvas=canvas
-        self.id=canvas.create_text(450,10,text=self.score, fill="black")
+        self.id=canvas.create_text(450,10,text=self.score_1, fill="black")
         self.score_2=0
         self.id_2=canvas.create_text(430,10,text=self.score_2, fill="black")
     def hit(self):
-        self.score+=1
-        self.canvas.itemconfig(self.id, text=self.score)
+        self.score_1+=1
+        self.canvas.itemconfig(self.id, text=self.score_1)
     def hit_2(self):
         self.score_2+=1
         self.canvas.itemconfigure(self.id_2, text=self.score_2)
     def get_score(self):
-        return self.score
+        return self.score_1
     def get_score_2(self):
         return self.score_2
 
@@ -61,6 +61,7 @@ class Paddle_2:
         self.canvas.move(self.id,200, 50)
         self.x=0
         self.canvas_width=self.canvas.winfo_width()
+        self.started=False
         self.canvas.bind_all("<a>",self.turn_left)
         self.canvas.bind_all("<d>",self.turn_right)
     def turn_left(self,event):
@@ -87,12 +88,13 @@ class Ball:
         self.paddle_2=paddle_2
         self.color=color
         self.id=None
-        self.new(self)
+        self.new()
+
+
+    def new(self):
         if self.id:
             self.canvas.delete(self.id)
-
-
-        
+      
         self.id=canvas.create_oval(10,10,25,25,fill=self.color)
         self.canvas.move(self.id, 250,200)
         start=[-3,-2,-1,1,1,2,3]
@@ -103,30 +105,36 @@ class Ball:
         self.canvas_width=self.canvas.winfo_width()
         self.hit_bottom=False
         self.hit_top=False
-#    def new
+
     def draw(self):
         self.canvas.move(self.id,self.x,self.y)
         pos=self.canvas.coords(self.id)
+        if pos[1]<=0:
+            self.y=3
         if pos[1]<=0:
             self.hit_top=True
         if pos[3]>=self.canvas_height:
             self.hit_bottom=True
         if self.hit_paddle(pos)==True:
-            self.y-=3
+            self.y=-3
         if self.hit_paddle_2(pos)==True:
-            self.y+=3
+            self.y=3
         if pos[0]<=0:
             self.x=3
         if pos[2]>=self.canvas_width:
             self.x=-3
 
-    def hit_paddle(self,pos):
-        paddle_pos=self.canvas.coords(self.paddle.id)
+    def hit_paddle_2(self,pos):
         paddle2_pos=self.canvas.coords(self.paddle_2.id)
+        
         if pos[2]>=paddle2_pos[0] and pos[0]<=paddle2_pos[2]:
             if pos[1]<=paddle2_pos[3] and pos[1]>=paddle2_pos[1]:
                 self.x+=self.paddle_2.x
                 return True
+        return False
+    def hit_paddle(self,pos):
+        paddle_pos=self.canvas.coords(self.paddle.id)
+
         if pos[2]>=paddle_pos[0] and pos[0]<=paddle_pos[2]:
             if pos[3]>=paddle_pos[1] and pos[3]<=paddle_pos[3]:
                 self.x+=self.paddle.x
@@ -139,7 +147,7 @@ paddle=Paddle(canvas, "blue")
 text_sch=canvas.create_text(440,10,text=":")
 ball=Ball(canvas,paddle,paddle_2,"yellow")
 game_end=False
-#text=canvas.create_text(250,200,text="Game Over", font="Arial 20", state=HIDDEN)
+
 while True:
     if ball.hit_bottom==False and paddle.started==True and ball.hit_top==False: 
         paddle_2.draw()
@@ -155,8 +163,23 @@ while True:
         ball.new()
         time.sleep(1)
  
-        break
+    
+    score_1=score.get_score()
+    if score_1>=max_score:
+        text=canvas.create_text(250,200,text="Победа игрока 1!",fill="blue", font="Arial 20",state=NORMAL)
+        game_end=True
+    score_2=score.get_score_2()
+    if score_2>=max_score:
+        text=canvas.create_text(250,200,text="Победа игрока 2!", fill="purple", font="Arial 20",state=NORMAL)
+        game_end=True
     root.update_idletasks()
     root.update()
     time.sleep(0.01)
+    if game_end:
+        time.sleep(5)
+        break
+    else:
+        time.sleep(0.01)
+    
+
     
