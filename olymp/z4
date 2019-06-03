@@ -1,0 +1,3 @@
+a,b,l,N=map(int, input().split())
+otv=a*(N*2-1)+2*b*(N-1)+l*2
+print(otv)
