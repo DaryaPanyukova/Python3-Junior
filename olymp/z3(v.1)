@@ -1,0 +1,11 @@
+N,K=map(int, input().split())
+i=0
+
+while True:
+    otv=(N+i)/(K+i)
+    if (N+i)/(K+i)<=3:
+        break
+    else:
+        i=i+1
+
+print(i)
