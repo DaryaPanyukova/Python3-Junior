@@ -1,0 +1,6 @@
+a,b,c=map(int, input().split())
+k1=(a+1)//2
+k2=(b+1)//2
+k3=(c+1)//2
+
+print(k1+k2+k3)
