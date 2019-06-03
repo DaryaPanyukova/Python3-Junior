@@ -1,0 +1,5 @@
+a=int(input())
+k=55*a+30
+h=k//60
+m=k%60
+print(8+h, m-10)
