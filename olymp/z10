@@ -1,6 +1,6 @@
 import math
 M,N,K=map(int, input().split())
-if K>N and N<M:
+if K>=N and N<M:
     print("невозможно")
 else:
     otv=max(0,M-N) /(N-K)+1
