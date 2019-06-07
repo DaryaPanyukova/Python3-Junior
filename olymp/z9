@@ -1,0 +1,5 @@
+h,m=map(int, input().split())
+t=(60*h+m)*11%720
+if t!=0:
+    t=(720-t)//11
+print(t)
