@@ -1,0 +1,16 @@
+n=int(input())
+Max=0
+fio=[]
+for i in range(n):
+    data=input().split()
+    sred=(int(data[2])+int(data[3])+int(data[4]))/3
+    if sred>Max:
+        fio=[]
+        fio.append(data[0]+' '+data[1])
+        
+        Max=sred
+    elif sred==Max:
+        fio.append(data[0]+' '+data[1])
+for i in range(len(fio)):
+
+    print(fio[i],int(Max))
