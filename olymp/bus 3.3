@@ -1,0 +1,25 @@
+M=int(input())
+sp1=[]
+sp2=[]
+sp3=[]
+
+for i in range(M):
+    vvod=input().split()
+    sp1=sp1.append(vvod[0])
+    sp2=sp2.append(vvod[1])
+    sp3=sp3.append(vvod[2])
+    
+N=int(input())
+inter=[0]*M
+shtr=[0]*M
+for i in range(N):
+    x,y=map(int, input().split())
+    s=sp2.index(y)
+    interval=x-inter[i]-sp2[i]
+    if interval>2:
+        shtr[i]=shtr[i]+interval-2
+        inter[i]=y
+for i in range(M):
+    if shtr[i]>0:
+        print(sp1[i], sp3[i],  shtr[i], )
+        
