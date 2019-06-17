@@ -1,0 +1,13 @@
+n=int(input())
+x=0
+Min=41
+for i in range(n):
+    data=input().split()
+    kniga="".join(data[3:])
+    if int(data[1])<1980 and int(data[2])>=400:
+        x+=1
+        if len(kniga)<Min:
+            s=kniga
+            Min=len(kniga)
+print(x)
+print(s)
