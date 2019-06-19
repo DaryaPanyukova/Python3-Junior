@@ -1,0 +1,13 @@
+x1,y1=map(float, input().split())
+x2,y2=map(float, input().split())
+x3,y3=map(float, input().split())
+x4,y4=map(float, input().split())
+
+nachx=max(x1, x3)
+konx=min(x2, x4)
+nachy=max(y1, y3)
+kony=min(y2, y4)
+if nachx<konx and nachy<kony:
+    print((konx-nachx)*(kony-nachy))
+else:
+    print("NO")
