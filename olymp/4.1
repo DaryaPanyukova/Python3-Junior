@@ -1,0 +1,11 @@
+f=open("primer4.txt", "r")
+g=open("primer5.txt", "w")
+s=list(map(int,f.read().split()))
+k=min(s)
+otv=s.count(k)
+g.write(str(k)+" "+str(otv))
+
+g.close()
+f.close()
+
+
