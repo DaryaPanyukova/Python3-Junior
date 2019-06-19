@@ -1,0 +1,16 @@
+from random import randint
+nach=[]
+kon=[]
+r=int(input())
+for i in range(r):
+    xmin, xmax=map(float,input().split())
+
+    nach.append(xmin)
+    kon.append(xmax)
+Max=max(nach)
+Min=min(kon)
+if Min<Max:
+    print("NO")
+else:
+    print(randint(Max, Min))
+    
