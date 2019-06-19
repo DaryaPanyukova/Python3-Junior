@@ -1,0 +1,12 @@
+N=int(input())
+sl={}
+for i in range(N):
+    name, *operation=input().split()
+    sl[name]=operation
+M=int(input())
+for i in range(M):
+    a,b=input()
+    if a=="read" and "R" in operation:
+        print("OK")
+    if a=="write" and "W" in operation:
+        print("OK")
