@@ -89,12 +89,16 @@ def place_leaf():
     leaf.sety(random.randint(-t.window_height()//2,t.window_height()//2))
     leaf.st()
 
+def show_apple():
+    apple.st()
+    
 def place_apple():
     apple.ht()
     apple.setx(random.randint(-t.window_width()//2,t.window_width()//2))
     apple.sety(random.randint(-t.window_height()//2,t.window_height()//2))
-    apple.st()
+    t.ontimer(show_apple, 5000)
     
+
 def start_game():
     global game_started, time
     if game_started:
@@ -126,15 +130,17 @@ def start_game():
            
             caterpillar_length+=1
             caterpillar.shapesize(1, caterpillar_length, 1)
-            caterpillar_speed-=0.5
+            if caterpillar_speed>1:
+                caterpillar_speed-=0.5
             score+=5
             display_score(score)
         if caterpillar_2.distance(leaf) <20:
             
             place_leaf()
             caterpillar_2_length+=1
-            caterpillar_2.shapesize(1, caterpillar_length, 1)
-            caterpillar_2_speed-=1
+            caterpillar_2.shapesize(1, caterpillar_2_length, 1)
+            if caterpillar_2_speed>1:
+                caterpillar_2_speed-=0.5
             score1+=5
             display_score2(score1)
 
