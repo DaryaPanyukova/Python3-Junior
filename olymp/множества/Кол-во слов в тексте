@@ -1,0 +1,14 @@
+n=int(input())
+a=set()
+for i in range(n):
+    b=list(map(str,input().split()))
+    for i in range(len(b)):
+        a.add(b[i])
+     
+print(len(a))
+
+#2 вариант
+words=set()
+for i in range(int(input()):
+  word.update(input().split())
+print(len(words))
