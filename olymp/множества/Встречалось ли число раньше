@@ -1,0 +1,9 @@
+a=list(map(int, input().split()))
+b=set()
+for el in a:
+    if el in b:
+        print("YES")
+        
+    else:
+        print("NO")
+        b.add(el)
