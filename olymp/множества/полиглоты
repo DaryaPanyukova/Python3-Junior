@@ -1,0 +1,24 @@
+n=int(input())
+sp=set()
+All=set()
+for i in range(int(input())):
+    lang=input()
+    sp.add(lang)
+
+
+for i in range(n-1):
+    s=set()
+    for i in range(int(input())):
+        s.add(input()) 
+    sp.intersection_update(s)
+    All.update(s)
+ 
+
+print(len(sp))
+for i in sorted(sp):
+    print(i)
+
+print(len(All))
+for i in sorted(All):
+    print(i)
+
