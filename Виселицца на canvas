@@ -1,61 +1,56 @@
 from tkinter import *
 import random
-
+from time import sleep
+guessed_letters=0
 def check_letter(event):
+    global lives, guessed_letters
     try_letter=letter.get()
-    if try_letter in secret_word:
-        
-        index=secret_word.index(try_letter)+1
-        print("correct")
-        canvas.itemconfigure(correct_letters, state=NORMAL)
+    num=secret_word.count(str(try_letter))
+    if num!=0:
+        for i in range(len(secret_word)):
+            if secret_word[i]==str(try_letter):
+                correct_letters=canvas.create_text((i+1)*53+12,320, text=try_letter, fill="white", state=NORMAL, font="Arial 35")
+                guessed_letters+=1
+                if guessed_letters==len(secret_word):
+                    correct_letters=canvas.create_text(200,380, text="Вы выиграли!", fill="black", state=NORMAL, font="Arial 35")                
     else:
-        print("wrong")
-
+        nadp_lives=canvas.create_text(40*lives,120,text=heart_symbol, font="Arial 30", fill="SkyBlue1")
+        lives-=1
+        if lives==0:
+            correct_letters=canvas.create_text(300,380, text="Вы проиграли!", fill="black", state=NORMAL, font="Arial 30")
+            correct_letters=canvas.create_text(300,440, text=" Загаданное слово - " + str(secret_word), fill="black", state=NORMAL, font="Arial 30")
     vvod.delete(0, END)
 
-
 #слова не длиннее 12 букв
-words=["корова","собака","выдра","белка","медведь","петух","волк"]
+words=["корова","собака","выдра","белка","медведь","петух","волк", "вагон", "поезд", "помидор", "клавиатура", "солнце", "дерево","лабиринт", "колесо"]
 secret_word=random.choice(words)
 root=Tk()
 root.title("Game")
 root.resizable(False, False)
 root.wm_attributes("-topmost", 1)
-canvas=Canvas(root, width=700, height=500,bd=0,highlightthickness=0)
+canvas=Canvas(root, width=700, height=500,bd=0,highlightthickness=0, bg="SkyBlue1")
 canvas.pack()
-
 letter=StringVar()
 x=0
-y=0
-x1=40
-y1=300
-x2=90
-y2=350
-print(secret_word[0])
+
 for i in range(len(secret_word)):
-
-
-    kv=canvas.create_rectangle(x1+x,y1,x2+x,y2, fill="blue")
-    correct_letters=canvas.create_text(x1+x,y1, text=secret_word[i], fill="white", state=NORMAL)
+    kv=canvas.create_rectangle(40+x,300,90+x,350, fill="blue")
     x+=53
-
 
 vvod_button=Button(root, text="Ввод", width=20)
 vvod_button.place(x=300, y=210)
 vvod_button.bind("<Button-1>", check_letter)
-
 lives=5
 heart_symbol=u'\u2764'
-nadp_lives=Label(root,text=heart_symbol*lives, font="Arial 20")
-nadp_lives.place(x=0, y=100)
 
-nadp=Label(root,text="Введите букву", font="Arial 20")
-nadp.place(x=0,y=200)
+for i in range(5):
+    nadp_lives=canvas.create_text(40*(i+1),120,text=heart_symbol, font="Arial 30",fill="red")
 
-nadp1=Label(root,text="Виселицца", font="Arial 40")
-nadp1.place(x=200,y=10)
+nadp=canvas.create_text(90, 220,text="Введите букву", font="Arial 20")
+nadp1=canvas.create_text(250,50,text="Виселицца", font="Arial 40")
 
 vvod=Entry(root, width=10, textvariable=letter)
 vvod.place(x=200,y=210)
-
 root.mainloop()
+
+
