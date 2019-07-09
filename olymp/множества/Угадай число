@@ -1,0 +1,17 @@
+n=int(input())
+All=set(i for i in range(1,n+1))
+pos=set()
+not_pos=set()
+while True:
+    vvod=input()
+    if vvod=="HELP":
+        break
+        
+    ques=set(map(int,vvod.split()))
+    if input()=="YES":
+        not_pos.update(All-ques)
+        pos=pos-not_pos
+    else:
+        pos=All-ques-not_pos
+        not_pos.update(ques)
+print(*pos)
