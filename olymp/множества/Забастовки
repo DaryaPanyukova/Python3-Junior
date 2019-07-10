@@ -1,0 +1,10 @@
+N,K=map(int, input().split())
+sp=set()
+for i in range(K):
+    a, b=map(int, input().split())
+    for i in range((N-a)//b+1):
+
+        sp.add(a+b*i)
+
+sp=set([ i for i in sp if (i+1)%7!=0 and i%7!=0])
+print(len(sp))
