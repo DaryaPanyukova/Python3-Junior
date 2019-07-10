@@ -1,0 +1,14 @@
+n=int(input())
+a=[]
+for x in range(n):
+    a.append([])
+    for y in range(n):
+        if x+y==n-1:
+            a[x].append("1")
+    
+        elif x+y<n-1:
+            a[x].append("0")
+        else:
+            a[x].append("2")
+for el in a:
+    print(" ".join(el))
