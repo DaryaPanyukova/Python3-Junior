@@ -14,4 +14,4 @@ while True:
     else:
         pos=All-ques-not_pos
         not_pos.update(ques)
-print(*pos)
+print(sorted(pos))
