@@ -21,3 +21,11 @@ for i in sorted(sp):
 print(len(All))
 for i in sorted(All):
     print(i)
+    
+    
+   #короткий вариант
+students=[{input() for i in range(int(input())) }  for i in range(int(input()))]
+known_everyone, known_someone=set.intersection(*students), set.union(*students)
+print(len(known_everyone), *sorted(known_everyone), sep="\n")
+print(len(known_someone), *sorted(known_someone), sep="\n")
+
