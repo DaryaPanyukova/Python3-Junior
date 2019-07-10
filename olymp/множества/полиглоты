@@ -4,6 +4,7 @@ All=set()
 for i in range(int(input())):
     lang=input()
     sp.add(lang)
+    All.add(lang)
 
 
 for i in range(n-1):
@@ -12,7 +13,6 @@ for i in range(n-1):
         s.add(input()) 
     sp.intersection_update(s)
     All.update(s)
- 
 
 print(len(sp))
 for i in sorted(sp):
@@ -21,4 +21,3 @@ for i in sorted(sp):
 print(len(All))
 for i in sorted(All):
     print(i)
-
