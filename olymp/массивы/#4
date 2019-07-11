@@ -1,0 +1,13 @@
+a=input()
+d={"a": 0,"b": 1,"c": 2,"d": 3,"e": 4,"f": 5,"g": 6,"h": 7 }
+b=[["."]*8 for i in range(8)]
+for i in range(8):
+   for x in range(8):
+        if i==d[a[0]] or x==int(a[1])==8-x or abs(d[a[0]]-i)==abs(int(a[1])-(8-x)):
+            b[x][i]="*"
+        if int(a[1])==8-x and d[a[0]]==i:
+  
+            b[x][i]="Q"
+        
+for el in b:
+    print(" ".join(el))
