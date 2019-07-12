@@ -1,0 +1,12 @@
+n,m=map(int, input().split())
+a=[[int(j) for j in input().split()] for i in range(n)]
+
+i,j=map(int, input().split())
+
+
+def colums(a,i,j):
+    for k in range(len(a)):
+        a[k][i], a[k][j]= a[k][j], a[k][i]
+
+colums(a,i,j)
+print("\n".join([" ".join([str(i) for i in row]) for row in a]))
