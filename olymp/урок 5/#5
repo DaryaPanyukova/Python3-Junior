@@ -1,0 +1,14 @@
+n=int(input())
+Dict={}
+for i in range(n):
+    c=input().split()
+    for el in c:
+        Dict[el]=Dict.get(el,0)+c.count(el)
+Max=0
+otv=""
+sp=[]
+for el in Dict:
+    if Dict.get(el)>Max:
+        Max=Dict[el]
+        sp.append(el)
+print(*min(sp))
