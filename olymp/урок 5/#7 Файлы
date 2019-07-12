@@ -1,0 +1,19 @@
+N=int(input())
+sl={}
+sp=[]
+for i in range(N):
+    name,*operation=input().split()
+    sl[name]=operation
+M=int(input())
+for i in range(M):
+    a,b=input().split()
+    if a=="read" and "R" in sl[b]:
+        sp.append("OK")
+    elif a=="write" and "W" in sl[b]:
+        sp.append("OK")
+    elif a=="execute" and "X" in sl[b]:
+        sp.append("OK")
+    else:
+        sp.append("Acces denied")
+for el in sp:
+    print(el)
