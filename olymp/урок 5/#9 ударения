@@ -1,0 +1,17 @@
+N=int(input())
+stress={}
+for i in range(N):
+   word=input()
+   lower_word=word.lower()
+   if lower_word not in stress:
+       stress[lower_word]=set()
+    stress[lower_word].add(word)
+
+text=input().split()
+error=0
+for word in text:
+    lower_word=word.lower()
+    if lower_word in stress and word not in stress[lower_word] or sum(map(str.isupper,word)!=1):
+        error+=1
+
+print(error)
