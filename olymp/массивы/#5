@@ -1,0 +1,11 @@
+a=list(map(int, input().split()))
+Max=0
+otv=0
+for el in a:
+    x=a.count(el)
+    if x>Max or (x==Max and el>otv) :
+        Max=x
+        otv=el
+
+print(otv)
+        
