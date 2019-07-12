@@ -1,0 +1,6 @@
+n=list(map(str,input().split()))
+Dict={}
+for el in n:
+    Dict[el]=n.count(el)
+for el in Dict:
+    print(el, Dict[el])
