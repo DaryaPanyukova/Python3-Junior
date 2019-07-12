@@ -1,0 +1,10 @@
+n=int(input())
+k=int(input())
+sp=["|" for i in range(n)]
+for i in range(k):
+    li,ri=map(int, input().split())
+    for i in range(li, ri+1):
+        sp[i-1]="."
+
+print(*sp)
+    
