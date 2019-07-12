@@ -1,0 +1,7 @@
+n=int(input())
+Dict={}
+for i in range(n):
+    name, col= input().split()
+    Dict[name]=Dict.get(name,0) + int(col)
+for el in sorted(Dict):
+    print(el, Dict[el])
