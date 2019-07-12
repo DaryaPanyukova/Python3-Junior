@@ -1,0 +1,13 @@
+N=int(input())
+
+lat_sl={}
+for i in range(N):
+    eng, *lat=input().replace(",", " ").split()
+    lat=lat[1:len(lat)]
+    for el in lat:
+        if lat_sl.get(el,0)==0:
+            lat_sl[el]=[]
+        lat_sl[el].append(eng)
+print(len(lat_sl))
+for i in sorted(lat_sl.keys()):
+    print(i, " - ", ", ".join(lat_sl[i]))
