@@ -1,0 +1,67 @@
+from tkinter import messagebox, simpledialog, Tk
+from random import choice
+
+root=Tk()
+root.withdraw()
+
+def get_task():
+    task=simpledialog.askstring("Задание ", "Что сделать: расшифровать или зашифровать ")
+    return task
+
+def get_message():
+    message=simpledialog.askstring("Сообщение ", "Введите задание")
+    return message
+
+def is_even(number):
+    return number%2==0
+
+def get_even_letters(message):
+    even_letters=list()
+    for counter in range(0, len(message)):
+        if is_even(counter) :
+            even_letters.append(message[counter])
+    return even_letters
+
+def get_oth_letters(message):
+    oth_letters=list()
+    for counter in range(0, len(message)):
+        if not is_even(counter) :
+            oth_letters.append(message[counter])
+    return oth_letters
+
+def swap_letters(message): 
+    letter_list=list()
+    if not is_even(len(message)):
+        message+="x"
+    even_letters=get_even_letters(message)
+    oth_letters=get_oth_letters(message)
+    for counter in range(0, int(len(message)/2)):
+        letter_list.append(oth_letters[counter])
+        letter_list.append(even_letters[counter])
+    new_message="".join(letter_list)
+    return new_message
+
+def encrypt(message):
+    swapped_message=swap_letters(message)
+    new_message="".join(reversed(swapped_message))
+    return new_message
+
+def decrypt(message):
+    unreversed_message="".join(reversed(message))
+    new_message=swap_lettersc(unreversed_message)
+    return new_message
+
+while True:
+    task=get_task()
+    if task=="зашифровать":
+        message=get_message()
+        encrypted=encrypt(message)
+        messagebox.showinfo("Сообщение для зашифровки",encrypted)
+    elif task=="расшифровать":
+        message=get_message()
+        decrypted=decrypt(message)
+        messagebox.showinfo("Сообщение для дешифровки", decrypted)
+
+    else:
+        break
+    
