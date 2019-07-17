@@ -8,7 +8,7 @@ radius=50
 while keep_going:
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
-            keep_going==False
+            keep_going=False
     pygame.draw.circle(screen, GREEN, (100,100), radius)
     pygame.display.update()
 
