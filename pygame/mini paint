@@ -14,7 +14,7 @@ while keep_going:
     for event in pygame.event.get():
         c=(randint(0,255),randint(0,255),randint(0,255))
         if event.type==pygame.QUIT:
-            keep_going==False
+            keep_going=False
         if event.type==pygame.MOUSEBUTTONDOWN:
             mousdown=True
             
