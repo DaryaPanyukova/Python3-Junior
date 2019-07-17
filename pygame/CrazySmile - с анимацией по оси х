@@ -1,0 +1,29 @@
+import pygame
+pygame.init()
+
+screen=pygame.display.set_mode([600, 600])
+keep_going=True
+pic=pygame.image.load("CrazySmile.bmp")
+colorkey=pic.get_at((0,0))
+pic.set_colorkey(colorkey)
+pic_x=0
+pic_y=0
+BLACK=(0,0,0)
+timer=pygame.time.Clock()
+speed=2
+
+while keep_going:
+    for event in pygame.event.get():
+        if event.type==pygame.QUIT:
+            keep_going==False
+    pic_x+=speed
+    pic_y+=speed
+    if pic_x<=0 or pic_x+pic.get_width()>=600:
+        speed=-speed
+    
+    screen.fill(BLACK)
+    screen.blit(pic, (pic_x,pic_y))
+    pygame.display.update()
+    timer.tick(60)
+
+pygame.quit()
