@@ -16,7 +16,7 @@ speed_y=2
 while keep_going:
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
-            keep_going==False
+            keep_going=False
     pic_x+=speed_x
     pic_y+=speed_y
     if pic_x<=0 or pic_x+pic.get_width()>=900:
