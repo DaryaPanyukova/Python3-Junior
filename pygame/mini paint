@@ -1,0 +1,29 @@
+import pygame
+from random import randint
+pygame.init()
+
+screen=pygame.display.set_mode([900, 700])
+pygame.display.set_caption("Точки")
+keep_going=True
+
+
+radius=10
+mousdown=False
+
+while keep_going:
+    for event in pygame.event.get():
+        c=(randint(0,255),randint(0,255),randint(0,255))
+        if event.type==pygame.QUIT:
+            keep_going==False
+        if event.type==pygame.MOUSEBUTTONDOWN:
+            mousdown=True
+            
+        if event.type==pygame.MOUSEBUTTONUP:
+            mousdown=False
+        if mousdown:
+            spot=pygame.mouse.get_pos()
+            pygame.draw.circle(screen, c, spot, radius)
+        
+            
+    pygame.display.update()
+pygame.quit()
