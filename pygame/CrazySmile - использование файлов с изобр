@@ -8,7 +8,7 @@ while keep_going:
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
             keep_going==False
-        screen.blit(pic, (100,100))
-        pygame.display.update()
+    screen.blit(pic, (100,100))
+    pygame.display.update()
 
 pygame.quit()
