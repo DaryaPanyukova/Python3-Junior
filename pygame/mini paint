@@ -5,14 +5,12 @@ pygame.init()
 screen=pygame.display.set_mode([900, 700])
 pygame.display.set_caption("Точки")
 keep_going=True
-
-
-radius=10
 mousdown=False
 
 while keep_going:
     for event in pygame.event.get():
         c=(randint(0,255),randint(0,255),randint(0,255))
+        radius=randint(5,15)
         if event.type==pygame.QUIT:
             keep_going=False
         if event.type==pygame.MOUSEBUTTONDOWN:
