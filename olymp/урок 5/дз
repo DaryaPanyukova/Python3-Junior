@@ -1,0 +1,16 @@
+n=int(input())
+sl={}
+otv={}
+for i in range(n-1):
+    child, parent= map(str,input().split())
+    sl[parent]=child
+    print(sl)
+for el in sl:
+    if el not in sl.values():
+        otv[el]=0
+        for i in range(1, len(sl)+1):
+            otv[sl.get(el)]=i
+            el=sl.get(el)
+print(otv)
+for el in sorted(otv):
+    print(el, otv[el])
