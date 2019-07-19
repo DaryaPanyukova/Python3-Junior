@@ -1,0 +1,58 @@
+import pygame
+from random import randint
+pygame.init()
+
+screen=pygame.display.set_mode([900, 700])
+pygame.display.set_caption("Точки")
+keep_going=True
+mousdown=False
+color=(225,225,225)
+white=(225,225,225)
+red=(220, 20, 60)
+yellow=(225, 225, 0)
+pink=(225, 0, 225)
+green=(0, 225, 0)
+blue=(30, 144, 255)
+
+white_button=pygame.draw.rect(screen, white, (0,0, 70, 40))
+red_button=pygame.draw.rect(screen, red, (70,0, 70, 40))
+yellow_button=pygame.draw.rect(screen, yellow, (140,0, 70, 40))
+pink_button=pygame.draw.rect(screen, pink, (210,0, 70, 40))
+green_button=pygame.draw.rect(screen, green, (280,0, 70, 40))
+blue_button=pygame.draw.rect(screen, blue, (350,0, 70, 40))
+
+
+while keep_going:
+    for event in pygame.event.get():
+        radius=randint(5,15)
+        if event.type==pygame.QUIT:
+            keep_going=False
+        if event.type==pygame.MOUSEBUTTONDOWN:
+            mousdown=True
+            
+        if event.type==pygame.MOUSEBUTTONUP:
+            
+            mousdown=False
+        if mousdown:
+            if pygame.mouse.get_pressed()[0]:
+                pos=pygame.mouse.get_pos()
+            
+                if pos[0]<70 and pos[1]<=40:
+                    color=white
+                elif 70<=pos[0]<140 and pos[1]<=40:
+                    color=red
+                elif 140<=pos[0]<210 and pos[1]<=40:
+                    color=yellow
+                elif 210<=pos[0]<280 and pos[1]<=40:
+                    color=pink
+                elif 280<=pos[0]<350 and pos[1]<=40:
+                    color=green
+                elif 350<=pos[0]<420 and pos[1]<=40:
+                    color=blue
+                else:
+                    spot=pygame.mouse.get_pos()
+                    pygame.draw.circle(screen, color, spot, radius)
+        
+            
+    pygame.display.update()
+pygame.quit()
