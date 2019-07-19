@@ -1,0 +1,37 @@
+import pygame
+from random import randint
+pygame.init()
+
+screen=pygame.display.set_mode([900, 700])
+pygame.display.set_caption("Точки")
+keep_going=True
+mousdown=False
+color=(225,225,225)
+
+def change_color():
+    global color
+    if event.type==pygame.KEYDOWN:
+        color=(randint(0,255),randint(0,255),randint(0,255))
+
+
+
+
+while keep_going:
+    for event in pygame.event.get():
+        
+        change_color()
+        radius=randint(5,15)
+        if event.type==pygame.QUIT:
+            keep_going=False
+        if event.type==pygame.MOUSEBUTTONDOWN:
+            mousdown=True
+            
+        if event.type==pygame.MOUSEBUTTONUP:
+            mousdown=False
+        if mousdown:
+            spot=pygame.mouse.get_pos()
+            pygame.draw.circle(screen, color, spot, radius)
+        
+            
+    pygame.display.update()
+pygame.quit()
