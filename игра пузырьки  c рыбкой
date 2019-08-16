@@ -1,0 +1,115 @@
+from tkinter import *
+from random import randint
+from time import time, sleep
+from math import sqrt
+
+
+
+def move_sub(event):
+    if event.keysym=="Up":
+        c.move(lodka,0,-speed)
+    elif event.keysym=="Down":
+        c.move(lodka,0,+speed)
+    elif event.keysym=="Left":
+        c.move(lodka,-speed,0)
+    elif event.keysym=="Right":
+        c.move(lodka,+speed,0)
+        
+def create_bub():
+    x=800+x_delta
+    y=randint(0, 500)
+    r=randint(min_bub_rad,max_bub_rad)
+    id1=c.create_oval(x-r,y-r, x+r,y+r, fill="SkyBlue")
+    bub_id.append(id1)
+    bub_r.append(r)
+    bub_speed.append(randint(1,max_bub_speed))
+
+def move_bub():
+    for i in range(len(bub_id)):
+        c.move(bub_id[i], -bub_speed[i], 0)
+        
+def get_coords(id_num):
+    pos=c.coords(id_num)
+    x=(pos[0]+pos[2])//2
+    y=(pos[1]+pos[3])//2
+    return x,y
+
+def del_bub(i):
+    del bub_r[i]
+    del bub_speed[i]
+    c.delete(bub_id[i])
+    del bub_id[i]
+
+def clean_bub():
+    for i in range(len(bub_id)-1, -1, -1):
+        x,y=get_coords(bub_id[i])
+        if x<-x_delta:
+            del_bub(i)
+    
+
+def distance(id1, id2):
+    x1,y1=get_coords(id1)
+    x2,y2=get_coords(id2)
+    return sqrt((x2-x1)**2+(y2-y1)**2)
+
+def collisions():
+    points=0
+    for bub in range (len(bub_id)-1, -1, -1):
+        if distance(lodka, bub_id[bub])<=rad_lod+bub_r[bub]:
+            points+=bub_r[bub]+bub_speed[bub]
+            del_bub(bub)
+
+    return points
+
+def show_score(score):
+    c.itemconfig(score_text, text=str(score))
+
+def show_time(time_left):
+    c.itemconfig(time_text, text=str(time_left))
+    
+root=Tk()
+root.title("Подводная лодка")
+c=Canvas(root, width=800, height=500, bg="blue")
+c.pack()
+
+limit=30
+bon_score=1000
+bonus=0
+end=time()+limit
+#lodka_p2=c.create_polygon(30,30,35, 50,30,70,60,50, fill="yellow", )
+lodka=c.create_polygon(30,30,35, 50,30,70,55, 50,68,40, 75, 37, 65, 20,  90, 35,110, 50, 90, 65,75, 67, fill="yellow",outline="orange")
+c.create_text(150,30,text="Счет: ", fill="white", font="Arial 15")
+c.create_text(50, 30, text="Время: ", fill="white", font="Arial 15")
+time_text=c.create_text(50, 50, fill="white", font="Arial 15")
+score_text=c.create_text(150, 50, fill="white", font="Arial 15")
+r=5
+rad_lod=12
+
+c.move(lodka, 350, 210)
+speed=10
+bub_id=list()
+bub_r=list()
+bub_speed=list()
+min_bub_rad=10
+max_bub_rad=30
+max_bub_speed=10
+x_delta=100
+bub_chance=10
+score=0
+
+while time()<end:
+    if randint(1, bub_chance)==1:
+        create_bub()
+    move_bub()
+    clean_bub()
+    score+=collisions()
+    if int(score/bon_score)>bonus:
+        bonus+=1
+        end+=limit
+    show_score(score)
+    show_time(int(end-time()))
+    c.bind_all("<Key>", move_sub)
+    root.update()
+    sleep(0.01)
+c.create_text(400,250, text="Игра окончена. Ваш счет: " + str(score)+ ".\n"+" Вы зароботали "+ str(bonus*limit) + " бонусных секунд", fill="white", font="Arial 20")
+#добавить бонусные очки и лучший результат
