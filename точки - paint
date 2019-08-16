@@ -1,0 +1,83 @@
+from random import randint
+pygame.init()
+
+screen=pygame.display.set_mode([990, 700])
+pygame.display.set_caption("Точки")
+keep_going=True
+mousdown=False
+color=(225,225,225)
+black=(0,0,0)
+white=(225,225,225)
+red=(220, 20, 60)
+yellow=(225, 225, 0)
+purple=(225, 0, 140)
+green=(0, 225, 50)
+blue=(30, 80, 255)
+orange=(225, 150, 0)
+pink=(150, 0, 225)
+deep_blue=(30, 200, 255)
+deep_green=(0, 160, 0)
+
+
+white_button=pygame.draw.rect(screen, white, (0,0, 90, 40))
+red_button=pygame.draw.rect(screen, red, (90,0, 90, 40))
+yellow_button=pygame.draw.rect(screen, yellow, (180,0,90, 40))
+purple_button=pygame.draw.rect(screen, purple, (270,0, 90, 40))
+green_button=pygame.draw.rect(screen, green, (360,0, 90, 40))
+blue_button=pygame.draw.rect(screen, blue, (450,0, 90, 40))
+orange_button=pygame.draw.rect(screen, orange, (540,0, 90, 40))
+pink_button=pygame.draw.rect(screen, pink, (630,0, 90, 40))
+deep_blue_button=pygame.draw.rect(screen, deep_blue, (720,0, 90, 40))
+deep_green_button=pygame.draw.rect(screen, deep_green, (810,0, 90, 40))
+white_line=pygame.draw.line(screen, white,[900, 0], [990,0], 7)
+white_line2=pygame.draw.line(screen, white,[990,0],[990,40], 7)
+white_line3=pygame.draw.line(screen, white,[990,40], [900,40], 7)
+white_line4=pygame.draw.line(screen, white,[900,40],[900,0], 7)
+black_color=pygame.draw.rect(screen, black, (920,10, 60, 20))
+
+
+
+while keep_going:
+    for event in pygame.event.get():
+        radius=randint(5,15)
+        if event.type==pygame.QUIT:
+            keep_going=False
+        if event.type==pygame.MOUSEBUTTONDOWN:
+            mousdown=True
+            
+        if event.type==pygame.MOUSEBUTTONUP:
+            
+            mousdown=False
+        if mousdown:
+            if pygame.mouse.get_pressed()[0]:
+                pos=pygame.mouse.get_pos()
+            
+                if pos[0]<90 and pos[1]<=40:
+                    color=white
+                elif 90<=pos[0]<180 and pos[1]<=40:
+                    color=red
+                elif 180<=pos[0]<270 and pos[1]<=40:
+                    color=yellow
+                elif 270<=pos[0]<360 and pos[1]<=40:
+                    color=purple
+                elif 360<=pos[0]<450 and pos[1]<=40:
+                    color=green
+                elif 450<=pos[0]<540 and pos[1]<=40:
+                    color=blue
+                elif 540<=pos[0]<630 and pos[1]<=40:
+                    color=orange
+                elif 630<=pos[0]<720 and pos[1]<=40:
+                    color=pink
+                elif 720<=pos[0]<810 and pos[1]<=40:
+                    color=deep_blue
+                elif 810<=pos[0]<900 and pos[1]<=40:
+                    color=deep_green
+                elif 900<=pos[0]<990 and pos[1]<=40:
+                    color=black
+                else:
+                    spot=pygame.mouse.get_pos()
+                    pygame.draw.circle(screen, color, spot, radius)
+        
+            
+    pygame.display.update()
+pygame.quit()
