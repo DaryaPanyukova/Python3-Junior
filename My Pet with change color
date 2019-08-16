@@ -98,7 +98,6 @@ random_button.place(x=320, y=0)
 
 from tkinter import Tk, Canvas
 import random
-root=Tk()
 
 
 
