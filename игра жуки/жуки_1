@@ -1,4 +1,4 @@
-mport pygame
+import pygame
 
 pygame.init()
 pygame.key.set_repeat(20,20)
