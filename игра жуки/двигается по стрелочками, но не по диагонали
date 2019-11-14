@@ -1,0 +1,44 @@
+import pygame
+
+pygame.init()
+pygame.key.set_repeat(20,20)
+green=(0, 250, 154)
+window=pygame.display.set_mode((600, 400))
+
+running=True
+
+class Player(pygame.sprite.Sprite):
+    def __init__(self, xPos=0, yPos=0 ):
+        super().__init__()
+        self.image=pygame.image.load("kisspng.png")
+        self.x, self.y=xPos, yPos
+        
+figure=Player()
+
+while running:
+    for event in pygame.event.get():
+        if event.type==pygame.QUIT:
+            running=False
+        if event.type==pygame.KEYDOWN:
+            if event.key==pygame.K_LEFT:
+                figure.x-=5
+            if event.key==pygame.K_RIGHT:
+                figure.x+=5
+            if event.key==pygame.K_DOWN:
+                figure.y+=5
+            if event.key==pygame.K_UP:
+                figure.y-=5
+    window.fill(green) 
+    window.blit(figure.image, (figure.x, figure.y))
+    pygame.display.update()
+
+
+
+
+
+
+
+
+
+
+pygame.quit()
