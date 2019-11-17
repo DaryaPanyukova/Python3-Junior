@@ -73,6 +73,7 @@ def display_score(current_score):
     x=t.window_width()/2 - 60
     y=t.window_height()/2 - 60
     score_turtle.setpos(x, y)
+    score_turtle.color("red")
     score_turtle.write(str(current_score),align="center", font=("Arial", 40, "bold"))
 
 def display_score2(current_score):
@@ -81,6 +82,7 @@ def display_score2(current_score):
     x=-t.window_width()/2 +60
     y=t.window_height()/2-60
     score_turtle2.setpos(x,y)
+    score_turtle2.color("blue")
     score_turtle2.write(str(current_score),align="center", font=("Arial", 40, "bold"))
     
 def place_leaf():
@@ -171,6 +173,7 @@ def start_game():
                 t.color('blue')
                 t.write("Конец игры. Победа игрока 1", align="center", font=("Arial", 30, "normal"))
             else:
+                t.color('black')
                 t.write("Конец игры. Ничья", align="center", font=("Arial", 30, "normal"))
             break
 
