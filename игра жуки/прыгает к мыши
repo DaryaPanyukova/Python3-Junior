@@ -1,0 +1,44 @@
+import pygame
+
+class Player(pygame.sprite.Sprite):
+    def __init__(self, xPos=0, yPos=0 ):
+        super().__init__()
+        self.image=pygame.image.load("kisspng.png")
+        self.x, self.y=xPos, yPos
+        self.Bild=self.image
+
+    def rotate(self, degree):
+        self.Bild=pygame.transform.rotate(self.image, degree)
+        
+        
+
+
+pygame.init()
+pygame.key.set_repeat(20,20)
+green=(0, 250, 154)
+direction=0
+xmax,ymax=700, 550
+window=pygame.display.set_mode((xmax, ymax))
+figure=Player(xmax/2-50, ymax/2-50)
+running=True
+
+
+while running:
+    for event in pygame.event.get():
+        if event.type==pygame.QUIT:
+            running=False
+            
+        if event.type==pygame.MOUSEBUTTONDOWN:
+            (xPos, yPos)=pygame.mouse.get_pos()
+            figure.x=xPos-30
+            figure.y=yPos-30
+    window.fill(green) 
+    window.blit(figure.Bild, (figure.x, figure.y))
+    pygame.display.update()
+
+
+
+
+
+
+pygame.quit()
