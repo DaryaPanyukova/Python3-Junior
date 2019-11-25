@@ -1,0 +1,53 @@
+from bplayer import * #в отдельном файле bplayer сохранен код класса player, то есть мы просто сокращаем код
+pygame.display.set_caption("Моя игра")
+
+
+pygame.init()
+pygame.key.set_repeat(20,20)
+green=(0, 250, 154)
+direction=0
+xmax,ymax=700, 550
+window=pygame.display.set_mode((xmax, ymax))
+figure=Player(xmax/2-50, ymax/2-50)
+running=True
+degree=0
+distance=0
+xstep=random.randint(0,1)
+ystep=random.randint(0,1)
+
+if xstep==0:
+    xstep=-1
+if ystep==0:
+    ystep=-1
+while running:
+    for event in pygame.event.get():
+        if event.type==pygame.QUIT:
+            running=False
+            
+        if event.type==pygame.MOUSEBUTTONDOWN:
+            (xPos, yPos)=pygame.mouse.get_pos()
+            if (xPos>figure.x) and (xPos<figure.x+100) and (yPos>figure.y) and (yPos<figure.y+100):
+                figure.destroy()
+
+    if (figure.x<0) or (figure.x>xmax-110):
+        xstep=-xstep
+
+    if (figure.y<0) or (figure.y>ymax-110):
+        ystep=-ystep
+            
+    
+    degree=atan2(-ystep, xstep)
+    degree=degrees(degree)-90
+    figure.rotate(degree)
+    if not figure.iskilled:
+        figure.step(xstep, ystep)
+        pygame.time.delay(5)
+        
+    #figure.step(xstep, ystep)
+    pygame.time.delay(5)
+    window.fill(green) 
+    window.blit(figure.Bild, (figure.x, figure.y))
+    pygame.display.update()
+    
+
+
