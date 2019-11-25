@@ -1,0 +1,70 @@
+from bplayer import *
+pygame.display.set_caption("Моя игра")
+
+bugMax=5
+Figure=[]
+xstep=[]
+ystep=[]
+xmax,ymax=700,550
+for Nr in range(0, bugMax):
+    xPos=random.randint(100, xmax-100)
+    yPos=random.randint(100, ymax-100)
+    Figure.append(Player(xPos, yPos))
+    
+for Nr in range(0, bugMax):
+    xstep.append(random.randint(0,1))
+    if xstep[Nr]==0:
+        xstep[Nr]=-1
+    ystep.append(random.randint(0,1))
+    if ystep[Nr]==0:
+        ystep[Nr]=-1
+
+
+pygame.init()
+pygame.key.set_repeat(20,20)
+green=(0, 250, 154)
+direction=0
+
+window=pygame.display.set_mode((xmax, ymax))
+running=True
+degree=0
+distance=0
+
+while running:
+    for event in pygame.event.get():
+        if event.type==pygame.QUIT:
+            running=False
+            
+        if event.type==pygame.MOUSEBUTTONDOWN:
+            (xPos, yPos)=pygame.mouse.get_pos()
+            for Nr in range(0, bugMax):
+                            
+                if (xPos>Figure[Nr].x) and (xPos<Figure[Nr].x+100) and (yPos>Figure[Nr].y) and (yPos<Figure[Nr].y+100):
+                    Figure[Nr].destroy()
+    for Nr in range(0, bugMax):
+        if (Figure[Nr].x<0) or (Figure[Nr].x>xmax-110):
+            xstep[Nr]=-xstep[Nr]
+        if (Figure[Nr].y<0) or (Figure[Nr].y>ymax-110):
+            ystep[Nr]=-ystep[Nr]
+
+
+
+    for Nr in range(0, bugMax):
+        degree=atan2(-ystep[Nr], xstep[Nr])
+        degree=degrees(degree)-90
+        Figure[Nr].rotate(degree)
+
+    for Nr in range(0, bugMax):
+        
+        if not Figure[Nr].iskilled:
+            Figure[Nr].step(xstep[Nr]*2, ystep[Nr]*2)
+        pygame.time.delay(5)
+        
+    window.fill(green)
+    for Nr in  range(0, bugMax):
+        
+        window.blit(Figure[Nr].Bild, (Figure[Nr].x, Figure[Nr].y))
+    pygame.display.update()
+    
+
+pygame.quit()
