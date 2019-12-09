@@ -1,0 +1,116 @@
+import pygame as pg
+import random
+
+class Thing(pg.sprite.Sprite):
+    def __init__(self, name, xPos=0, yPos=0):
+        super().__init__()
+        self.image=pg.image.load(name)
+        
+        self.x, self.y=xPos, yPos
+        self.Bild=self.image
+        self.Width=self.Bild.get_width()
+        self.Height=self.Bild.get_height()
+        self.rect=self.Bild.get_rect()
+
+    def setPosition(self, xPos, yPos, updown):
+        self.x=xPos
+        if updown:
+            yoyu=random.randint(0,1)
+            self.y=yoyu*yPos+self.Height/2
+        else:
+            self.y=yPos
+
+    def move(self, xx, yy):
+        self.x+=xx
+        self.y+=yy
+
+    def controlRestart(self, xx, yy):
+        if self.x<0:
+            yoyu=random.randint(0,1)
+            self.x=xx-self.Width/2
+            self.y=yoyu*yy+self.Height/2
+            return True
+        else:
+            return False
+class Player(pg.sprite.Sprite):
+    image=[]
+    Dname=""
+    def __init__(self, xPos=0, yPos=0):
+        super().__init__()
+        self.image.append(pg.image.load("DoStand.png"))
+        self.image.append(pg.image.load("DoDuck.png"))
+        self.image.append(pg.image.load("DoJump.png"))
+        self.x, self.y=xPos, yPos
+        self.Bild=self.image[0]
+        self.isHit=False
+        self.Status=0
+
+    def setState(self, Nr):
+        self.Status=Nr
+        self.Bild=self.image[Nr]
+
+    def dodge(self, yPos, yMiddle):
+        
+        if (yPos<yMiddle and self.Status==1) or (yPos>yMiddle and self.Status==2):
+            return True
+        else:
+            return False
+        
+        
+                
+            
+
+def getTime(Reset):
+    global Start
+    if Reset:
+        Start=pg.time.get_ticks()
+    Diff=pg.time.get_ticks()-Start
+    return Diff
+
+Yellow=(255, 200, 50)
+xMax, yMax=800, 400
+Start=0
+pg.init()
+pg.key.set_repeat(20,20)
+pg.display.set_caption("Моя игра")
+Window=pg.display.set_mode((xMax,yMax))
+Figure=Player(20,30)
+running=True
+Ball=Thing("ball.png")
+Ball.setPosition(xMax-50, yMax/2, True)
+
+
+while running:
+    for event in pg.event.get():
+        if event.type==pg.QUIT:
+            running=False
+
+
+        if event.type==pg.KEYDOWN:
+            if event.key==pg.K_UP:
+                Figure.setState(2)
+                getTime(True)
+
+            if event.key==pg.K_DOWN:
+                Figure.setState(1)
+                getTime(True)
+    
+    Time=getTime(False)
+    if Time>700:
+        Figure.setState(0)
+    if not Figure.isHit:
+        Ball.move(-3,0)
+        Ball.controlRestart(xMax-50, yMax/2)
+    if (Ball.x<Figure.x+150):
+        if not Figure.dodge(Ball.y, yMax/2):
+            Figure.isHit=True
+        
+    Window.fill(Yellow)
+    Window.blit(Figure.Bild, (Figure.x, Figure.y))
+    Window.blit(Ball.Bild,(Ball.x, Ball.y))
+    pg.display.update()
+
+pg.quit()
+
+
+
